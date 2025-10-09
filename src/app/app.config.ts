@@ -9,7 +9,9 @@ import { provideTranslations } from './translate.config';
 import { FORMLY_CONFIG } from '@ngx-formly/core';
 import { TranslateService } from '@ngx-translate/core';
 import { formlyTranslateExtension } from './shared/formly/formly.validation';
-import { TranslateExtension } from './shared/formly/formly.translate-extension';
+import { providePrimeNG } from 'primeng/config';
+import material from '@primeng/themes/material';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +20,12 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(FormlyConfigModule),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: material,
+      },
+    }),
     {
       provide: FORMLY_CONFIG,
       multi: true,

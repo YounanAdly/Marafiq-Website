@@ -10,6 +10,36 @@
                     "required": true,
                     "translate": true
                 }
+            },
+            {
+                "key": "country",
+                "type": "custom-dropdown",
+                "props": {
+                    "label": "HELLO",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
+            },
+            {
+                "key": "date",
+                "type": "custom-calendar",
+                "props": {
+                    "label": "HELLO",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
+            },
+            {
+                "key": "multi",
+                "type": "custom-multiselect",
+                "props": {
+                    "label": "HELLO",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
             }
         ]
     }

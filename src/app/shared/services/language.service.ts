@@ -1,7 +1,9 @@
 import { isPlatformBrowser } from '@angular/common';
 import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs';
+import { CommonService } from './common.service';
 
 const DIRECTION_MAP: Record<string, 'ltr' | 'rtl'> = {
     en: 'ltr',
@@ -13,9 +15,12 @@ const DIRECTION_MAP: Record<string, 'ltr' | 'rtl'> = {
     providedIn: 'root'  // singleton service available app-wide
 })
 export class LanguageService {
-    private platformId = inject(PLATFORM_ID)
+    public platformId = inject(PLATFORM_ID)
     private router = inject(Router);
+    private commonService = inject(CommonService);
     private translateService = inject(TranslateService);
+    defaultLang: string = 'ar';
+
     isReady = signal(false);
 
     /** Change the current language */
@@ -54,7 +59,7 @@ export class LanguageService {
 
     /** Get the current language */
     getCurrentLanguage(): string {
-        return this.translateService.currentLang || this.translateService.defaultLang || 'ar';
+        return this.translateService.currentLang || this.translateService.defaultLang || 'en';
     }
 
     /** Initialize default language and optionally load from cookie */
@@ -68,6 +73,7 @@ export class LanguageService {
             const dir = DIRECTION_MAP[lang] || 'ltr';
             document.documentElement.setAttribute('dir', dir);
             document.documentElement.setAttribute('lang', lang);
+            this.RouteListener();
         }
     }
 
@@ -80,5 +86,27 @@ export class LanguageService {
             this.isReady.set(true);
             this.initLanguage();
         });
+    }
+
+    RouteListener() {
+        this.router.events
+            .pipe(filter(event => event instanceof NavigationEnd))
+            .subscribe(() => {
+                const lang = this.router.routerState.snapshot.root.firstChild?.params['lang'];
+                if (lang && this.isSupportedLang(lang)) {
+                    this.changeLanguage(lang);
+                }
+                else {
+                    if (this.commonService.getCookie('lang')) {
+                        this.changeLanguage(this.commonService.getCookie('lang'));
+                    } else {
+                        this.router.navigate([this.defaultLang]);
+                    }
+                }
+            });
+    }
+
+    private isSupportedLang(lang: string): boolean {
+        return ['en', 'ar'].includes(lang); // list your supported langs
     }
 }

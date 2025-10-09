@@ -8,7 +8,6 @@ export class TranslateExtension implements FormlyExtension {
 
   prePopulate(field: FormlyFieldConfig): void {
         const to: any = field.props || {};
-        debugger
         if (!to.translate || to._translated) {
             return;
         }

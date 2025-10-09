@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FontSizeService } from '../../shared/services/font-size.service';
 import { LanguageService } from '../../shared/services/language.service';
 import { ThemeService } from '../../shared/services/theme.service';
 import formConfig from './form.json'
+import { InputMaskModule } from 'primeng/inputmask';
 
 @Component({
   selector: 'app-home-page',
-  imports: [ReactiveFormsModule, FormlyModule, TranslateModule],
+  imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -24,6 +25,7 @@ export class HomePageComponent {
   model = { name: '' };
 
   fields: FormlyFieldConfig[] = [];
+  value: string = '99-999999';
 
   ngOnInit() {
     this.currentLang = this.languageService.getCurrentLanguage();

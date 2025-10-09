@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
+import { InputTextModule } from 'primeng/inputtext';
 import { CustomInputTypeComponent } from './custom-components/custom-input.type';
+import { CustomDropDownTypeComponent } from './custom-components/custom-dropdown.types';
+import { CustomCalendarTypeComponent } from './custom-components/custom-calendar.types';
+import { CustomMultiSelectTypeComponent } from './custom-components/custom-multiselect.types';
 @NgModule({
     imports: [
+        FormsModule,
         ReactiveFormsModule,
         FormlyBootstrapModule,
+        InputTextModule,
         FormlyModule.forRoot({
             extras: { lazyRender: true, resetFieldOnHide: true },
             types: [
@@ -14,10 +20,25 @@ import { CustomInputTypeComponent } from './custom-components/custom-input.type'
                     name: 'custom-input',
                     component: CustomInputTypeComponent,
                     wrappers: ['form-field'],
+                },
+                {
+                    name: 'custom-dropdown',
+                    component: CustomDropDownTypeComponent,
+                    wrappers: ['form-field'],
+                },
+                {
+                    name: 'custom-calendar',
+                    component: CustomCalendarTypeComponent,
+                    wrappers: ['form-field'],
+                },
+                  {
+                    name: 'custom-multiselect',
+                    component: CustomMultiSelectTypeComponent,
+                    wrappers: ['form-field'],
                 }
             ]
         }),
     ],
-    exports: [FormlyModule]
+    exports: [FormlyModule, FormsModule, ReactiveFormsModule]
 })
 export class FormlyConfigModule { }
