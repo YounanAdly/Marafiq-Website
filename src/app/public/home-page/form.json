@@ -1,0 +1,16 @@
+[
+    {
+        "fieldGroup": [
+            {
+                "key": "name",
+                "type": "custom-input",
+                "props": {
+                    "label": "HELLO",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
+            }
+        ]
+    }
+]

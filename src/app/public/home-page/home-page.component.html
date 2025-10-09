@@ -1,0 +1,24 @@
+<div>
+    <h1>{{ 'HELLO' | translate }}</h1>
+</div>
+
+<div>
+    {{'WELCOME' | translate}}
+</div>
+
+<div>
+    {{'GOODBYE' | translate}}
+</div>
+
+<button (click)="toggleTheme()">toggle</button>
+<button (click)="toggleLanguage()">toggle lang</button>
+<div class="font-controls">
+    <button (click)="fontService.decrease()">A-</button>
+    <button (click)="fontService.reset()">A</button>
+    <button (click)="fontService.increase()">A+</button>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <button type="submit">Submit</button>
+</form>
