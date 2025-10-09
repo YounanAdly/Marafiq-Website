@@ -1,5 +1,5 @@
 import { provideServerRendering } from '@angular/ssr';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig, mergeApplicationConfig } from '@angular/core';
 import { appConfig } from './app.config';
 import { provideTranslations } from './translate.config';
@@ -7,7 +7,7 @@ import { provideTranslations } from './translate.config';
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     ...provideTranslations()
   ]
 };

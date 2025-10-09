@@ -24,3 +24,13 @@
     <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
     <button type="submit">Submit</button>
 </form>
+
+@if (users$ | async; as users) {
+@for (item of users ?? []; track $index) {
+@if($last) {<span>last child</span> }
+<p>{{ item.fieldName }}</p>
+@for (test of item.dropdownValues; track $index) {
+<p>{{ test.label }}</p>
+}
+}
+}

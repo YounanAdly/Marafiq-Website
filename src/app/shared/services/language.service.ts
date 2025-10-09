@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import { CommonService } from './common.service';
+import { AppConfig } from '../../config/app.config';
 
 const DIRECTION_MAP: Record<string, 'ltr' | 'rtl'> = {
     en: 'ltr',
@@ -19,21 +20,23 @@ export class LanguageService {
     private router = inject(Router);
     private commonService = inject(CommonService);
     private translateService = inject(TranslateService);
-    defaultLang: string = 'ar';
+    defaultLang: string = AppConfig.defaultLanguage || 'en';
 
     isReady = signal(false);
 
     /** Change the current language */
     changeLanguage(lang: string): void {
-        this.translateService.use(lang);
-        // Optional: save preference in cookie or localStorage
-        document.cookie = `lang=${lang}; path=/; SameSite=Lax;`;
+        if (this.isSupportedLang(lang)) {
+            this.translateService.use(lang);
+            // Optional: save preference in cookie or localStorage
+            document.cookie = `lang=${lang}; path=/; SameSite=Lax;`;
 
-        // Set direction
-        const dir = DIRECTION_MAP[lang] || 'ltr';
-        document.documentElement.setAttribute('dir', dir);
-        document.documentElement.setAttribute('lang', lang);
-        this.ChangeLanguageInUrl(lang);
+            // Set direction
+            const dir = DIRECTION_MAP[lang] || 'ltr';
+            document.documentElement.setAttribute('dir', dir);
+            document.documentElement.setAttribute('lang', lang);
+            this.ChangeLanguageInUrl(lang);
+        }
     }
 
     ChangeLanguageInUrl(newLang: string) {
@@ -59,7 +62,7 @@ export class LanguageService {
 
     /** Get the current language */
     getCurrentLanguage(): string {
-        return this.translateService.currentLang || this.translateService.defaultLang || 'en';
+        return this.translateService.getCurrentLang() || AppConfig.defaultLanguage || 'en';
     }
 
     /** Initialize default language and optionally load from cookie */
@@ -67,7 +70,7 @@ export class LanguageService {
         if (isPlatformBrowser(this.platformId)) {
             const match = document.cookie.match(/lang=(\w+)/);
             const lang = match ? match[1] : defaultLang;
-            this.translateService.setDefaultLang(lang);
+            this.translateService.use(lang);
             this.translateService.use(lang);
             // Set direction
             const dir = DIRECTION_MAP[lang] || 'ltr';
@@ -80,7 +83,7 @@ export class LanguageService {
     waitLanguageLoad() {
         var match = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
         var lang = match ? match[1] : 'en';
-        this.translateService.setDefaultLang(lang);
+        this.translateService.use(lang);
 
         this.translateService.use(lang).subscribe(() => {
             this.isReady.set(true);
@@ -97,7 +100,7 @@ export class LanguageService {
                     this.changeLanguage(lang);
                 }
                 else {
-                    if (this.commonService.getCookie('lang')) {
+                    if (this.commonService.getCookie('lang') && this.isSupportedLang(lang)) {
                         this.changeLanguage(this.commonService.getCookie('lang'));
                     } else {
                         this.router.navigate([this.defaultLang]);
@@ -107,6 +110,6 @@ export class LanguageService {
     }
 
     private isSupportedLang(lang: string): boolean {
-        return ['en', 'ar'].includes(lang); // list your supported langs
+        return AppConfig.supportedLanguages.includes(lang); // list your supported langs
     }
 }

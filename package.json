@@ -1,5 +1,5 @@
 {
-  "name": "new-iacad0101-ui",
+  "name": "custom-template",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:new-iacad0101-ui": "node dist/new-iacad0101-ui/server/server.mjs"
+    "serve:ssr:custom-template": "node dist/custom-template/server/server.mjs",
+    "start:dev": "ng serve --configuration=development",
+    "start:prod": "ng serve --configuration=production",
+    "start:default": "ng serve --configuration=default",
+    "build:dev": "ng build --configuration=development",
+    "build:prod": "ng build --configuration=production",
+    "build:default": "ng build --configuration=default"
   },
   "private": true,
   "dependencies": {

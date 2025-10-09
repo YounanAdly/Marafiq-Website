@@ -12,7 +12,7 @@ import { LanguageService } from './shared/services/language.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'new-iacad0101-ui';
+  title = 'custom-template';
   public languageService = inject(LanguageService);
 
   ngOnInit(): void {
