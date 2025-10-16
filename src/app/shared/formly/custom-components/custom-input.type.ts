@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FieldType, FieldTypeConfig, FormlyModule } from '@ngx-formly/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FieldType, FieldTypeConfig, FormlyModule } from '@ngx-formly/core';
 import { InputMaskModule } from 'primeng/inputmask';
 
 @Component({

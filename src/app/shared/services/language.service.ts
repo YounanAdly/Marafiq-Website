@@ -24,7 +24,10 @@ export class LanguageService {
 
     isReady = signal(false);
 
-    /** Change the current language */
+    /**
+     * Change the current language: switches TranslateService, persists cookie, and updates HTML dir/lang.
+     * @param lang Target language code
+     */
     changeLanguage(lang: string): void {
         if (this.isSupportedLang(lang)) {
             this.translateService.use(lang);
@@ -39,6 +42,10 @@ export class LanguageService {
         }
     }
 
+    /**
+     * Updates the first URL segment to reflect the new language and navigates.
+     * @param newLang Target language code
+     */
     ChangeLanguageInUrl(newLang: string) {
         // Get current URL segments
         const urlSegments = this.router.url.split('/').filter((segment: string) => segment.length > 0);
@@ -60,12 +67,17 @@ export class LanguageService {
     }
 
 
-    /** Get the current language */
+    /**
+     * Get the current language from TranslateService or fallback to default.
+     */
     getCurrentLanguage(): string {
         return this.translateService.getCurrentLang() || AppConfig.defaultLanguage || 'en';
     }
 
-    /** Initialize default language and optionally load from cookie */
+    /**
+     * Initialize the language from cookie or provided default and set document attributes.
+     * @param defaultLang Fallback language when cookie is absent
+     */
     initLanguage(defaultLang = 'en'): void {
         if (isPlatformBrowser(this.platformId)) {
             const match = document.cookie.match(/lang=(\w+)/);
@@ -80,6 +92,9 @@ export class LanguageService {
         }
     }
 
+    /**
+     * Ensures translations are loaded before marking the service ready.
+     */
     waitLanguageLoad() {
         var match = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
         var lang = match ? match[1] : 'en';
@@ -91,6 +106,9 @@ export class LanguageService {
         });
     }
 
+    /**
+     * Watches route changes to synchronize URL language segment with app language.
+     */
     RouteListener() {
         this.router.events
             .pipe(filter(event => event instanceof NavigationEnd))
@@ -109,6 +127,9 @@ export class LanguageService {
             });
     }
 
+    /**
+     * Checks if provided language is supported.
+     */
     private isSupportedLang(lang: string): boolean {
         return AppConfig.supportedLanguages.includes(lang); // list your supported langs
     }

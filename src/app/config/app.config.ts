@@ -1,6 +1,10 @@
 export const AppConfig = {
-  appName: 'CustomTep',
-  version: '1.0.0',
+  appName: 'CustomTemplate',
+  source: 'Web',
   defaultLanguage: 'en',
-  supportedLanguages: ['en','ar'],
+  supportedLanguages: ['en', 'ar'],
+  // Theming configuration
+  enableTheme: true,
+  defaultTheme: 'light',
+  supportedThemes: ['light', 'black', 'green'] as const,
 };

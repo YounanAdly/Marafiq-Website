@@ -5,14 +5,22 @@ import { inject, Injectable, PLATFORM_ID } from "@angular/core";
 export class CommonService {
     private platformId = inject(PLATFORM_ID);
 
-    //Used to set item in local
+    /**
+     * Stores a key/value pair in localStorage when running in the browser.
+     * @param key Storage key
+     * @param value Storage value (string)
+     */
     setLocalStorage(key: string, value: any): void {
         if (isPlatformBrowser(this.platformId)) {
             localStorage.setItem(key, value);
         }
     }
 
-    //Used to get item from local storage using key
+    /**
+     * Retrieves a value from localStorage by key when in the browser.
+     * @param key Storage key
+     * @returns Stored value or null
+     */
     getLocalStorage(key: string): any {
         if (isPlatformBrowser(this.platformId)) {
             return localStorage.getItem(key);
@@ -23,6 +31,11 @@ export class CommonService {
 
     }
 
+    /**
+     * Reads a cookie value by key when in the browser.
+     * @param key Cookie name
+     * @returns Cookie value or null
+     */
     getCookie(key: string): any {
         if (isPlatformBrowser(this.platformId)) {
             const match = document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)'));

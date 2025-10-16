@@ -11,6 +11,9 @@ import { FontSizeService } from '../../shared/services/font-size.service';
 import { LanguageService } from '../../shared/services/language.service';
 import { ThemeService } from '../../shared/services/theme.service';
 import formConfig from './form.json';
+import { FormlyService } from '../../shared/services/formly.service';
+import { SeoService } from '../../shared/services/seo.service';
+import { environment } from '../../../environments/environment';
 
 export interface DropdownValue {
   value: string;
@@ -22,6 +25,7 @@ export interface DropdownField {
   fieldName: string;
   dropdownValues: DropdownValue[];
 }
+
 @Component({
   selector: 'app-home-page',
   imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule, AsyncPipe],
@@ -34,10 +38,13 @@ export class HomePageComponent {
   private languageService = inject(LanguageService);
   public fontService = inject(FontSizeService)
   private baseCrudService = inject(BaseCrudService);
+  private formlyService = inject(FormlyService);
+  private seo = inject(SeoService);
   translate = inject(TranslateService);
 
   form!: FormGroup;
   users$!: Observable<DropdownField[]>;
+  Data$!: Observable<any[]>;
   model = { name: '' };
 
   fields: FormlyFieldConfig[] = [];
@@ -46,22 +53,45 @@ export class HomePageComponent {
 
   ngOnInit() {
     this.currentLang = this.languageService.getCurrentLanguage();
-    this.loadForm();
+    this.loadPage();
     this.translate.onLangChange.subscribe(lang => {
-      this.loadForm();
+      this.loadPage();
     })
   }
 
-  loadForm() {
+  loadPage() {
     this.form = new FormGroup({});
     this.fields = formConfig;
-    this.users$ = this.baseCrudService.list(Constants.API_URL);
+    this.users$ = this.baseCrudService.get(Constants.API_URL);
+    this.formlyService.setDropdownValue(this.fields, 'country', [{ label: 'New York', value: 'NY' }, { label: 'lebanon', value: 'LB' },]);
+    this.setSeo();
+  }
+
+  setSeo() {
+    this.seo.update({
+      title: this.translate.instant('home.seo.title'),
+      description: this.translate.instant('home.seo.description'),
+      keywords: this.translate.instant('home.seo.keywords'),
+      url: this.translate.instant(environment.AppConfig.apiBaseUrl + 'home.seo.url'),
+      author: this.translate.instant('home.seo.author'),
+      type: 'website',
+    });
   }
 
   // This method toggles the theme between light and dark
   toggleTheme() {
     const current = this.themeService.getTheme();
-    this.themeService.setTheme(current === 'dark' ? 'light' : 'dark');
+    if (!this.themeService.isConfiguredThemeEnabled(current)) {
+      return;
+    }
+    this.themeService.setTheme(current);
+  }
+
+  applyThemeButton(theme: string) {
+    if (!this.themeService.isConfiguredThemeEnabled(theme)) {
+      return;
+    }
+    this.themeService.setTheme(theme);
   }
 
   toggleLanguage() {

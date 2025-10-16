@@ -7,6 +7,7 @@ import { CustomInputTypeComponent } from './custom-components/custom-input.type'
 import { CustomDropDownTypeComponent } from './custom-components/custom-dropdown.types';
 import { CustomCalendarTypeComponent } from './custom-components/custom-calendar.types';
 import { CustomMultiSelectTypeComponent } from './custom-components/custom-multiselect.types';
+import { FormlyFileUploadType } from './custom-components/custom-file.types';
 @NgModule({
     imports: [
         FormsModule,
@@ -31,9 +32,14 @@ import { CustomMultiSelectTypeComponent } from './custom-components/custom-multi
                     component: CustomCalendarTypeComponent,
                     wrappers: ['form-field'],
                 },
-                  {
+                {
                     name: 'custom-multiselect',
                     component: CustomMultiSelectTypeComponent,
+                    wrappers: ['form-field'],
+                },
+                {
+                    name: 'file',
+                    component: FormlyFileUploadType,
                     wrappers: ['form-field'],
                 }
             ]

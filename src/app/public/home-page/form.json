@@ -40,6 +40,26 @@
                     "required": true,
                     "translate": true
                 }
+            },
+            {
+                "key": "profileImage",
+                "type": "file",
+                "templateOptions": {
+                    "label": "Profile Picture",
+                    "multiple": false,
+                    "accept": "image/*",
+                    "maxFileSize": 2000000
+                }
+            },
+            {
+                "key": "attachments",
+                "type": "file",
+                "templateOptions": {
+                    "label": "Attachments",
+                    "multiple": true,
+                    "accept": ".pdf,.doc,.docx,.jpg,.png",
+                    "maxFileSize": 10000000
+                }
             }
         ]
     }

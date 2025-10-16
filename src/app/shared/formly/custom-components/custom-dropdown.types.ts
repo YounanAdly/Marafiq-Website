@@ -3,21 +3,25 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FieldType, FieldTypeConfig, FormlyModule } from '@ngx-formly/core';
 import { SelectModule } from 'primeng/select';
-;
+'@angular/platform-browser'
 
 @Component({
     selector: 'formly-field-custom-input',
     imports: [CommonModule, ReactiveFormsModule, FormlyModule, SelectModule],
     template: `
-   <p-select [options]="cities" [formControl]="formControl"
+   <p-select [options]="items" [formControl]="formControl"
    appendTo="body"
-        optionLabel="name"
-    optionValue="code"
+        optionLabel="label"
+    optionValue="value"
     [showClear]="true"
-      [formlyAttributes]="field" optionLabel="name" placeholder="Select a City" />
+      [formlyAttributes]="field" placeholder="Select a City" />
 
   `,
 })
 export class CustomDropDownTypeComponent extends FieldType<FieldTypeConfig> {
-    cities = [{ name: 'New York', code: 'NY' },]
+
+    get items() {
+        console.log('Options:', this.props);
+        return this.props?.options as any[];
+    }
 }

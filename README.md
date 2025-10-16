@@ -2,6 +2,43 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
 
+## Overview
+
+This Angular application provides a starter with:
+
+- Authentication service with token storage and cached user contact info.
+- HTTP interceptors for Authorization, Accept-Language, Source headers, and a global loader.
+- Internationalization setup with language routing and direction (LTR/RTL) handling.
+- Shared utilities for local storage, theme switching, font size control, and form helpers.
+- Formly custom components and configuration.
+
+### Key folders
+
+- `src/app/shared/services/`
+  - `auth.service.ts`: login/logout, token handling, contact info caching
+  - `language.service.ts`: current language, URL sync, cookies, dir/lang attributes
+  - `loader.service.ts`: reactive loading state with Angular signals
+  - `theme.service.ts`: light/dark theme toggling
+  - `font-size.service.ts`: root font-size persistence and application
+  - `common.service.ts`: browser-safe localStorage and cookie helpers
+  - `base-crud.service.ts`: typed CRUD helpers against `environment.AppConfig.apiBaseUrl`
+- `src/app/shared/interceptors/`
+  - `auth.interceptor.ts`: adds Authorization, Accept-Language, Source headers
+  - `loader.interceptor.ts`: shows/hides loader during HTTP calls
+- `src/app/shared/formly/`: Formly config, validators, and custom field types
+- `src/assets/i18n/`: translation files (`en.json`, `ar.json`)
+
+### Configuration
+
+- `src/environments/*.ts`: sets `AppConfig.apiBaseUrl` per environment.
+- `src/app/app.config.ts`: registers routes, interceptors, translations, and UI providers.
+
+### Usage notes
+
+- Auth header is attached automatically when a token exists; set via `AuthService.setToken()`.
+- Language header is derived from `LanguageService.getCurrentLanguage()`.
+- Contact info is fetched once and cached via `AuthService.fetchContactInfo()`.
+
 ## Development server
 
 To start a local development server, run:
