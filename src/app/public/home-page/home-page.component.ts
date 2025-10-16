@@ -34,8 +34,8 @@ export interface DropdownField {
 })
 export class HomePageComponent {
   currentLang = '';
-  private themeService = inject(ThemeService);
-  private languageService = inject(LanguageService);
+  public themeService = inject(ThemeService);
+  public languageService = inject(LanguageService);
   public fontService = inject(FontSizeService)
   private baseCrudService = inject(BaseCrudService);
   private formlyService = inject(FormlyService);

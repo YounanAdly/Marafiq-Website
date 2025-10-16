@@ -25,20 +25,32 @@ export class LanguageService {
     isReady = signal(false);
 
     /**
+     * Indicates whether language change feature is enabled via configuration.
+     */
+    isLanguageEnabled(): boolean {
+        return AppConfig.enableLanguage !== false;
+    }
+
+    /**
      * Change the current language: switches TranslateService, persists cookie, and updates HTML dir/lang.
      * @param lang Target language code
      */
     changeLanguage(lang: string): void {
-        if (this.isSupportedLang(lang)) {
-            this.translateService.use(lang);
+        let selectedLang = this.isLanguageEnabled() ? lang : this.defaultLang;
+        if (selectedLang === this.commonService.getCookie('lang')) {
+            this.ChangeLanguageInUrl(selectedLang);
+            return; // No change needed
+        }
+        if (this.isSupportedLang(selectedLang)) {
+            this.translateService.use(selectedLang);
             // Optional: save preference in cookie or localStorage
-            document.cookie = `lang=${lang}; path=/; SameSite=Lax;`;
+            document.cookie = `lang=${selectedLang}; path=/; SameSite=Lax;`;
 
             // Set direction
-            const dir = DIRECTION_MAP[lang] || 'ltr';
+            const dir = DIRECTION_MAP[selectedLang] || 'ltr';
             document.documentElement.setAttribute('dir', dir);
-            document.documentElement.setAttribute('lang', lang);
-            this.ChangeLanguageInUrl(lang);
+            document.documentElement.setAttribute('lang', selectedLang);
+            this.ChangeLanguageInUrl(selectedLang);
         }
     }
 
@@ -49,7 +61,6 @@ export class LanguageService {
     ChangeLanguageInUrl(newLang: string) {
         // Get current URL segments
         const urlSegments = this.router.url.split('/').filter((segment: string) => segment.length > 0);
-
         if (urlSegments.length > 0) {
             // Replace the first segment (lang code) with newLang
             urlSegments[0] = newLang;
@@ -118,7 +129,7 @@ export class LanguageService {
                     this.changeLanguage(lang);
                 }
                 else {
-                    if (this.commonService.getCookie('lang') && this.isSupportedLang(lang)) {
+                    if (this.commonService.getCookie('lang') && this.isSupportedLang(lang) && this.isLanguageEnabled()) {
                         this.changeLanguage(this.commonService.getCookie('lang'));
                     } else {
                         this.router.navigate([this.defaultLang]);

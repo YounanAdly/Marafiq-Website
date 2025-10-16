@@ -10,17 +10,23 @@
     {{'GOODBYE' | translate}}
 </div>
 
+@if (themeService.isConfiguredThemeEnabled()) {
 <div class="theme-controls">
     <button (click)="applyThemeButton('light')">Light Theme</button>
     <button (click)="applyThemeButton('black')">Black Theme</button>
     <button (click)="applyThemeButton('green')">Custom Theme</button>
 </div>
+}
+@if (languageService.isLanguageEnabled()) {
 <button (click)="toggleLanguage()">toggle lang</button>
+}
+@if (fontService.isFontSizeEnabled()) {
 <div class="font-controls">
     <button (click)="fontService.decrease()">A-</button>
     <button (click)="fontService.reset()">A</button>
     <button (click)="fontService.increase()">A+</button>
 </div>
+}
 
 <button class="btn btn-primary">test</button>
 
