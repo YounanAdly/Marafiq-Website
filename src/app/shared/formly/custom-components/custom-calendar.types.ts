@@ -3,7 +3,7 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FieldType, FieldTypeConfig, FormlyModule } from '@ngx-formly/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Calendar } from 'primeng/calendar';
+import { DatePicker } from 'primeng/datepicker';
 import { PrimeNG } from 'primeng/config';
 import { DatePickerModule } from 'primeng/datepicker';
 
@@ -19,7 +19,7 @@ import { DatePickerModule } from 'primeng/datepicker';
 export class CustomCalendarTypeComponent extends FieldType<FieldTypeConfig> {
   private translateService = inject(TranslateService);
   private primeNGConfig = inject(PrimeNG);
-  @ViewChild('calendar', { static: false }) calendar!: Calendar;
+  @ViewChild('calendar', { static: false }) calendar!: DatePicker;
 
   ngOnInit(): void {
     this.setCalendarLang();

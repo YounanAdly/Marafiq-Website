@@ -1,21 +1,26 @@
 // src/app/translate.config.ts
-import { importProvidersFrom } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, provideTranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TRANSLATE_HTTP_LOADER_CONFIG } from '@ngx-translate/http-loader';
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+    return new TranslateHttpLoader();
 }
 
 export const provideTranslations = () => [
-    importProvidersFrom(
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient],
-            }
-        })
-    ),
+    provideTranslateService({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient],
+        }
+    }),
+    {
+        provide: TRANSLATE_HTTP_LOADER_CONFIG,
+        useValue: {
+            prefix: '/assets/i18n/',
+            suffix: '.json'
+        }
+    }
 ];

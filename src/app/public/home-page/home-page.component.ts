@@ -1,19 +1,20 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { InputMaskModule } from 'primeng/inputmask';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { Constants } from '../../constants';
+import { MapComponent } from '../../shared/components/maps.type';
 import { BaseCrudService } from '../../shared/services/base-crud.service';
 import { FontSizeService } from '../../shared/services/font-size.service';
+import { FormlyService } from '../../shared/services/formly.service';
 import { LanguageService } from '../../shared/services/language.service';
+import { SeoService } from '../../shared/services/seo.service';
 import { ThemeService } from '../../shared/services/theme.service';
 import formConfig from './form.json';
-import { FormlyService } from '../../shared/services/formly.service';
-import { SeoService } from '../../shared/services/seo.service';
-import { environment } from '../../../environments/environment';
 
 export interface DropdownValue {
   value: string;
@@ -28,7 +29,7 @@ export interface DropdownField {
 
 @Component({
   selector: 'app-home-page',
-  imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule, AsyncPipe],
+  imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule, AsyncPipe, MapComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -39,6 +40,7 @@ export class HomePageComponent {
   public fontService = inject(FontSizeService)
   private baseCrudService = inject(BaseCrudService);
   private formlyService = inject(FormlyService);
+  private platformId = inject(PLATFORM_ID);
   private seo = inject(SeoService);
   translate = inject(TranslateService);
 
@@ -50,7 +52,6 @@ export class HomePageComponent {
   fields: FormlyFieldConfig[] = [];
   value: string = '99-999999';
 
-
   ngOnInit() {
     this.currentLang = this.languageService.getCurrentLanguage();
     this.loadPage();
@@ -59,7 +60,7 @@ export class HomePageComponent {
     })
   }
 
-  loadPage() {
+  async loadPage() {
     this.form = new FormGroup({});
     this.fields = formConfig;
     this.users$ = this.baseCrudService.get(Constants.API_URL);
@@ -103,4 +104,5 @@ export class HomePageComponent {
   submit() {
     console.log(this.model);
   }
+
 }
