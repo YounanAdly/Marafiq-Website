@@ -15,6 +15,7 @@ import { LanguageService } from '../../shared/services/language.service';
 import { SeoService } from '../../shared/services/seo.service';
 import { ThemeService } from '../../shared/services/theme.service';
 import formConfig from './form.json';
+import { RouterModule } from '@angular/router';
 
 export interface DropdownValue {
   value: string;
@@ -29,7 +30,7 @@ export interface DropdownField {
 
 @Component({
   selector: 'app-home-page',
-  imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule, AsyncPipe, MapComponent],
+  imports: [ReactiveFormsModule, FormlyModule, TranslateModule, FormsModule, InputMaskModule, AsyncPipe, MapComponent, RouterModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -55,7 +56,8 @@ export class HomePageComponent {
   ngOnInit() {
     this.currentLang = this.languageService.getCurrentLanguage();
     this.loadPage();
-    this.translate.onLangChange.subscribe(lang => {
+    this.translate.onLangChange.subscribe(event => {
+      this.currentLang = event.lang;
       this.loadPage();
     })
   }
@@ -96,7 +98,8 @@ export class HomePageComponent {
   }
 
   toggleLanguage() {
-    const newLang = this.currentLang === 'en' ? 'ar' : 'en';
+    const activeLang = this.languageService.getCurrentLanguage() || this.currentLang || 'en';
+    const newLang = activeLang === 'en' ? 'ar' : 'en';
     this.languageService.changeLanguage(newLang);
     this.currentLang = newLang;
   }

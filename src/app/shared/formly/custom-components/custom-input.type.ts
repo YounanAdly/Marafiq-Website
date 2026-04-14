@@ -11,7 +11,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     <input type="text" pInputText [formControl]="formControl"
       [formlyAttributes]="field"
       class="custom-input"
-      [placeholder]="to.placeholder"
+      [required]="props.required ? true : false"
+      [placeholder]="props.placeholder"
       type="text"/>
   `,
 })

@@ -1,29 +1,27 @@
 // src/app/map/map.component.ts
-import { Component, OnInit, ViewChild, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import type * as L from 'leaflet';
 
 @Component({
   selector: 'app-map',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <div class="map-container">
       <div #mapContainer class="map"></div>
       <div class="controls">
         <button (click)="clearMarkers()">Clear Markers</button>
         <button (click)="goToMyLocation()">My Location</button>
       </div>
-      <div class="info-text">Click on the map to add markers</div>
+      <div class="info-text mx-5">Click on the map to add markers</div>
     </div>
   `,
   styles: [`
     .map-container {
       position: relative;
-      height: 100vh;
-      width: 100%;
+      height: 500px;
+      width: 500px;
     }
 
     .map {

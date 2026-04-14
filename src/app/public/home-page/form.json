@@ -60,6 +60,18 @@
                     "accept": ".pdf,.doc,.docx,.jpg,.png",
                     "maxFileSize": 10000000
                 }
+            },
+            {
+                "key": "searchableSelect",
+                "type": "searchable-select",
+                "props": {
+                    "label": "Photos",
+                    "placeholder": "Select a photo",
+                    "apiUrl": "https://jsonplaceholder.typicode.com/photos",
+                    "bindLabel": "title",
+                    "bindValue": "id",
+                    "virtualScroll": true
+                }
             }
         ]
     }

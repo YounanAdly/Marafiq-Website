@@ -4,11 +4,11 @@ export const AppConfig = {
 
   // Language configuration
   enableLanguage: true,
-  defaultLanguage: 'en',
+  defaultLanguage: 'ar',
   supportedLanguages: ['en', 'ar'],
  
   // Theming configuration
-  enableTheme: true,
+  enableTheme: false,
   defaultTheme: 'light',
   supportedThemes: ['light', 'black', 'green'] as const,
 

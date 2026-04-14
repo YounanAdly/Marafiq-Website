@@ -36,22 +36,15 @@ export class LanguageService {
      * @param lang Target language code
      */
     changeLanguage(lang: string): void {
-        let selectedLang = this.isLanguageEnabled() ? lang : this.defaultLang;
-        if (selectedLang === this.commonService.getCookie('lang')) {
-            this.ChangeLanguageInUrl(selectedLang);
-            return; // No change needed
+        const selectedLang = this.isLanguageEnabled() ? lang : this.defaultLang;
+        if (!this.isSupportedLang(selectedLang)) {
+            return;
         }
-        if (this.isSupportedLang(selectedLang)) {
-            this.translateService.use(selectedLang);
-            // Optional: save preference in cookie or localStorage
-            document.cookie = `lang=${selectedLang}; path=/; SameSite=Lax;`;
 
-            // Set direction
-            const dir = DIRECTION_MAP[selectedLang] || 'ltr';
-            document.documentElement.setAttribute('dir', dir);
-            document.documentElement.setAttribute('lang', selectedLang);
-            this.ChangeLanguageInUrl(selectedLang);
-        }
+        this.translateService.use(selectedLang);
+        document.cookie = `lang=${selectedLang}; path=/; SameSite=Lax;`;
+        this.applyDocumentLanguage(selectedLang);
+        this.ChangeLanguageInUrl(selectedLang);
     }
 
     /**
@@ -61,6 +54,9 @@ export class LanguageService {
     ChangeLanguageInUrl(newLang: string) {
         // Get current URL segments
         const urlSegments = this.router.url.split('/').filter((segment: string) => segment.length > 0);
+        if (urlSegments.length > 0 && urlSegments[0] === newLang) {
+            return;
+        }
         if (urlSegments.length > 0) {
             // Replace the first segment (lang code) with newLang
             urlSegments[0] = newLang;
@@ -107,13 +103,12 @@ export class LanguageService {
      * Ensures translations are loaded before marking the service ready.
      */
     waitLanguageLoad() {
-        var match = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
-        var lang = match ? match[1] : 'en';
-        this.translateService.use(lang);
-
+        const lang = this.getBootstrapLanguage();
         this.translateService.use(lang).subscribe(() => {
             this.isReady.set(true);
-            this.initLanguage();
+            this.applyDocumentLanguage(lang);
+            this.RouteListener();
+            this.syncLanguageWithRoute();
         });
     }
 
@@ -123,19 +118,7 @@ export class LanguageService {
     RouteListener() {
         this.router.events
             .pipe(filter(event => event instanceof NavigationEnd))
-            .subscribe(() => {
-                const lang = this.router.routerState.snapshot.root.firstChild?.params['lang'];
-                if (lang && this.isSupportedLang(lang)) {
-                    this.changeLanguage(lang);
-                }
-                else {
-                    if (this.commonService.getCookie('lang') && this.isSupportedLang(lang) && this.isLanguageEnabled()) {
-                        this.changeLanguage(this.commonService.getCookie('lang'));
-                    } else {
-                        this.router.navigate([this.defaultLang]);
-                    }
-                }
-            });
+            .subscribe(() => this.syncLanguageWithRoute());
     }
 
     /**
@@ -143,5 +126,39 @@ export class LanguageService {
      */
     private isSupportedLang(lang: string): boolean {
         return AppConfig.supportedLanguages.includes(lang); // list your supported langs
+    }
+
+    private getBootstrapLanguage(): string {
+        if (!this.isLanguageEnabled()) {
+            return this.defaultLang;
+        }
+        const match = document.cookie.match(/(?:^|;\s*)lang=(\w+)/);
+        const cookieLang = match ? match[1] : '';
+        return this.isSupportedLang(cookieLang) ? cookieLang : this.defaultLang;
+    }
+
+    private applyDocumentLanguage(lang: string): void {
+        const dir = DIRECTION_MAP[lang] || 'ltr';
+        document.documentElement.setAttribute('dir', dir);
+        document.documentElement.setAttribute('lang', lang);
+    }
+
+    private syncLanguageWithRoute(): void {
+        const routeLang = this.router.routerState.snapshot.root.firstChild?.params['lang'];
+        if (routeLang && this.isSupportedLang(routeLang)) {
+            if (!this.isLanguageEnabled() && routeLang !== this.defaultLang) {
+                this.ChangeLanguageInUrl(this.defaultLang);
+                return;
+            }
+            this.changeLanguage(routeLang);
+            return;
+        }
+
+        const cookieLang = this.commonService.getCookie('lang');
+        if (cookieLang && this.isSupportedLang(cookieLang) && this.isLanguageEnabled()) {
+            this.changeLanguage(cookieLang);
+            return;
+        }
+        this.router.navigate([this.defaultLang]);
     }
 }

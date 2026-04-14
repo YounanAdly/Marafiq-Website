@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { CommonService } from './common.service';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { DropdownOption } from '../models/dropdown.model';
+import { DropdownOption } from '../formly/custom-components/drop-down/dropdown.model';
 
 @Injectable({ providedIn: 'root' })
 export class FormlyService {

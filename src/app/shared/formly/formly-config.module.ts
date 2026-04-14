@@ -4,10 +4,11 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { CustomInputTypeComponent } from './custom-components/custom-input.type';
-import { CustomDropDownTypeComponent } from './custom-components/custom-dropdown.types';
+import { CustomDropDownTypeComponent } from './custom-components/drop-down/custom-dropdown.types';
 import { CustomCalendarTypeComponent } from './custom-components/custom-calendar.types';
 import { CustomMultiSelectTypeComponent } from './custom-components/custom-multiselect.types';
 import { FormlyFileUploadType } from './custom-components/custom-file.types';
+import { customSearchableSelectComponent } from './custom-components/custom-searchable-select.types';
 @NgModule({
     imports: [
         FormsModule,
@@ -35,6 +36,11 @@ import { FormlyFileUploadType } from './custom-components/custom-file.types';
                 {
                     name: 'custom-multiselect',
                     component: CustomMultiSelectTypeComponent,
+                    wrappers: ['form-field'],
+                },
+                {
+                    name: 'searchable-select',
+                    component: customSearchableSelectComponent,
                     wrappers: ['form-field'],
                 },
                 {
