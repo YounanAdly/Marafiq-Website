@@ -12,6 +12,26 @@
                 }
             },
             {
+                "key": "name1",
+                "type": "custom-input",
+                "props": {
+                    "label": "HELLO1",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
+            },
+            {
+                "key": "name2",
+                "type": "custom-input",
+                "props": {
+                    "label": "HELLO2",
+                    "placeholder": "WELCOME",
+                    "required": true,
+                    "translate": true
+                }
+            },
+            {
                 "key": "country",
                 "type": "custom-dropdown",
                 "props": {
@@ -59,18 +79,6 @@
                     "multiple": true,
                     "accept": ".pdf,.doc,.docx,.jpg,.png",
                     "maxFileSize": 10000000
-                }
-            },
-            {
-                "key": "searchableSelect",
-                "type": "searchable-select",
-                "props": {
-                    "label": "Photos",
-                    "placeholder": "Select a photo",
-                    "apiUrl": "https://jsonplaceholder.typicode.com/photos",
-                    "bindLabel": "title",
-                    "bindValue": "id",
-                    "virtualScroll": true
                 }
             }
         ]

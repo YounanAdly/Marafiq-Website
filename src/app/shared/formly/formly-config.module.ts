@@ -9,6 +9,7 @@ import { CustomCalendarTypeComponent } from './custom-components/custom-calendar
 import { CustomMultiSelectTypeComponent } from './custom-components/custom-multiselect.types';
 import { FormlyFileUploadType } from './custom-components/custom-file.types';
 import { customSearchableSelectComponent } from './custom-components/custom-searchable-select.types';
+import { emailPatternValidator, numberOnlyValidator, passwordMatchValidator, passwordStrengthValidator } from './formly.validators';
 @NgModule({
     imports: [
         FormsModule,
@@ -17,6 +18,20 @@ import { customSearchableSelectComponent } from './custom-components/custom-sear
         InputTextModule,
         FormlyModule.forRoot({
             extras: { lazyRender: true, resetFieldOnHide: true },
+            validators: [
+                {
+                    name: 'emailPattern',
+                    validation: emailPatternValidator
+                },
+                {
+                    name: 'numbersOnly',
+                    validation: numberOnlyValidator
+                },
+                {
+                    name: 'emailPattern',
+                    validation: emailPatternValidator
+                }
+            ],
             types: [
                 {
                     name: 'custom-input',

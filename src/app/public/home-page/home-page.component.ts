@@ -105,7 +105,9 @@ export class HomePageComponent {
   }
 
   submit() {
-    console.log(this.model);
+    if(this.form.valid) {
+      console.log(this.model);
+    }
   }
 
 }

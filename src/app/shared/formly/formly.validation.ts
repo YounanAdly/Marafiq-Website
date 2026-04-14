@@ -10,6 +10,18 @@ export function formlyTranslateExtension(translate: TranslateService) {
                     return translate.stream('GOODBYE');
                 },
             },
+            {
+                name: 'numbersOnly',
+                message() {
+                    return translate.stream('numbersOnly');
+                }
+            },
+            {
+                name: 'emailPattern',
+                message() {
+                    return translate.stream('emailPattern');
+                }
+            }
         ],
 
         extensions: [{

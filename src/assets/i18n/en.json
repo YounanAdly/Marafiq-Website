@@ -2,6 +2,7 @@
   "HELLO": "Hello world!",
   "WELCOME": "Welcome to our application",
   "GOODBYE": "Goodbye",
+  "numbersOnly": "Numbers only allowed",
   "home": {
     "seo": {
       "title": "Home Page | My Portal",
