@@ -14,12 +14,14 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'custom-template';
+  title = 'marafiq';
   public languageService = inject(LanguageService);
   private router = inject(Router);
   @ViewChild('mainContent') mainContent!: ElementRef;
-  hidePublicHeaderOnRoutes = ['/contact-us'];
-  hideHeader:boolean = false;
+  hidePublicHeaderOnRoutes = ['/contact-us', '/login'];
+  hidePublicFooterOnRoutes = ['/login'];
+  hideHeader: boolean = false;
+  hideFooter: boolean = false;
 
   ngOnInit(): void {
     this.hideHeaderFooterOnRouteChange();
@@ -42,6 +44,7 @@ export class AppComponent {
       .subscribe((event: NavigationEnd) => {
         const url = event.urlAfterRedirects;
         this.hideHeader = this.hidePublicHeaderOnRoutes.some(r => url.includes(r));
+        this.hideFooter = this.hidePublicFooterOnRoutes.some(r => url.includes(r));
         // console.log('Current URL:', url, 'Hide Footer:', this.hideFooter, 'Hide Header:', this.hideHeader);
       });
   }

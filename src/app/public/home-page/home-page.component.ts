@@ -48,7 +48,7 @@ export class HomePageComponent {
   form!: FormGroup;
   users$!: Observable<DropdownField[]>;
   Data$!: Observable<any[]>;
-  model = { name: '' };
+  model: Record<string, unknown> = {};
 
   fields: FormlyFieldConfig[] = [];
   value: string = '99-999999';
@@ -66,7 +66,16 @@ export class HomePageComponent {
     this.form = new FormGroup({});
     this.fields = formConfig;
     this.users$ = this.baseCrudService.get(Constants.API_URL);
-    this.formlyService.setDropdownValue(this.fields, 'country', [{ label: 'New York', value: 'NY' }, { label: 'lebanon', value: 'LB' },]);
+    this.formlyService.setDropdownValue(this.fields, 'connectionType', [
+      { label: 'Domestic', value: 'domestic' },
+      { label: 'Commercial', value: 'commercial' },
+      { label: 'Industrial', value: 'industrial' },
+    ]);
+    this.formlyService.setDropdownValue(this.fields, 'premisesType', [
+      { label: 'Villa', value: 'villa' },
+      { label: 'Apartment', value: 'apartment' },
+      { label: 'Office', value: 'office' },
+    ]);
     this.setSeo();
   }
 
@@ -105,9 +114,14 @@ export class HomePageComponent {
   }
 
   submit() {
-    if(this.form.valid) {
+    if (this.form.valid) {
       console.log(this.model);
     }
+  }
+
+  cancelForm() {
+    this.form.reset();
+    this.model = {};
   }
 
 }

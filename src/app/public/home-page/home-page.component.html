@@ -22,12 +22,16 @@
     <button (click)="fontService.increase()">A+</button>
 </div>
 
-<button class="btn btn-primary"
-    [routerLink]="'/'+languageService.getCurrentLanguage() + '/contact-us'">test</button>
+<a [routerLink]="'/'+languageService.getCurrentLanguage() + '/login'">
+    <button type="button" class="home-action-btn home-action-primary">Login</button>
+</a>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
     <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-    <button type="submit">Submit</button>
+    <div class="home-form-actions">
+        <button type="button" class="home-action-btn home-action-outline" (click)="cancelForm()">Cancel</button>
+        <button type="submit" class="home-action-btn home-action-primary">Submit</button>
+    </div>
 </form>
 
 @if (users$ | async; as users) {

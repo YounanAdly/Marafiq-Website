@@ -13,7 +13,9 @@
     <main id="main-content" tabindex="-1">
         <router-outlet></router-outlet>
     </main>
+    @if (!hideFooter) {
     <app-footer></app-footer>
+    }
     <app-global-loader />
 </ng-container>
 }

@@ -2,83 +2,204 @@
     {
         "fieldGroup": [
             {
-                "key": "name",
+                "key": "customerName",
                 "type": "custom-input",
                 "props": {
-                    "label": "HELLO",
-                    "placeholder": "WELCOME",
+                    "label": "Customer Name",
+                    "placeholder": "Josiane Homsi",
                     "required": true,
-                    "translate": true
+                    "dimmed": true
                 }
             },
             {
-                "key": "name1",
+                "key": "civilIdNo",
                 "type": "custom-input",
                 "props": {
-                    "label": "HELLO1",
-                    "placeholder": "WELCOME",
-                    "required": true,
-                    "translate": true
+                    "label": "Civil ID No.",
+                    "placeholder": "Civil ID No.",
+                    "required": true
                 }
             },
             {
-                "key": "name2",
+                "key": "crNo",
                 "type": "custom-input",
                 "props": {
-                    "label": "HELLO2",
-                    "placeholder": "WELCOME",
-                    "required": true,
-                    "translate": true
+                    "label": "CR No.",
+                    "placeholder": "CR No."
                 }
             },
             {
-                "key": "country",
+                "key": "mobileNumber",
+                "type": "custom-input",
+                "props": {
+                    "label": "Mobile Number",
+                    "placeholder": "+968 9111 1111",
+                    "required": true,
+                    "dimmed": true
+                }
+            },
+            {
+                "key": "email",
+                "type": "custom-input",
+                "props": {
+                    "label": "Email",
+                    "placeholder": "name@example.com",
+                    "dimmed": true
+                }
+            },
+            {
+                "key": "permanentAddress",
+                "type": "custom-input",
+                "props": {
+                    "label": "Permanent Address",
+                    "placeholder": "Permanent Address"
+                }
+            },
+            {
+                "key": "alWilaya",
+                "type": "custom-input",
+                "props": {
+                    "label": "Al-Wilaya",
+                    "placeholder": "Al-Wilaya",
+                    "required": true
+                }
+            },
+            {
+                "key": "houseFlatNo",
+                "type": "custom-input",
+                "props": {
+                    "label": "House Flat No.",
+                    "placeholder": "House Flat No.",
+                    "required": true
+                }
+            },
+            {
+                "key": "connectionType",
                 "type": "custom-dropdown",
                 "props": {
-                    "label": "HELLO",
-                    "placeholder": "WELCOME",
-                    "required": true,
-                    "translate": true
+                    "label": "Connection Type",
+                    "placeholder": "Connection Type",
+                    "required": true
                 }
             },
             {
-                "key": "date",
-                "type": "custom-calendar",
+                "key": "premisesType",
+                "type": "custom-dropdown",
                 "props": {
-                    "label": "HELLO",
-                    "placeholder": "WELCOME",
-                    "required": true,
-                    "translate": true
+                    "label": "Premises Type",
+                    "placeholder": "Premises Type",
+                    "required": true
                 }
             },
             {
-                "key": "multi",
-                "type": "custom-multiselect",
+                "key": "expectedDailyConsumption",
+                "type": "custom-input",
                 "props": {
-                    "label": "HELLO",
-                    "placeholder": "WELCOME",
-                    "required": true,
-                    "translate": true
+                    "label": "Expected Daily Consumption",
+                    "placeholder": "Expected Daily Consumption"
                 }
             },
             {
-                "key": "profileImage",
+                "key": "tankCapacity",
+                "type": "custom-input",
+                "props": {
+                    "label": "Tank Capacity",
+                    "placeholder": "Tank Capacity"
+                }
+            },
+            {
+                "key": "floorsCount",
+                "type": "custom-input",
+                "props": {
+                    "label": "No. of Floors",
+                    "placeholder": "No. of Floors"
+                }
+            },
+            {
+                "key": "metersCount",
+                "type": "custom-input",
+                "props": {
+                    "label": "No. of Meters",
+                    "placeholder": "No. of Meters"
+                }
+            },
+            {
+                "key": "totalBuildingArea",
+                "type": "custom-input",
+                "props": {
+                    "label": "Total Building Area",
+                    "placeholder": "Total Building Area"
+                }
+            },
+            {
+                "key": "region",
+                "type": "custom-input",
+                "props": {
+                    "label": "Region",
+                    "placeholder": "Region",
+                    "required": true
+                }
+            },
+            {
+                "key": "serialSketchNumber",
+                "type": "custom-input",
+                "props": {
+                    "label": "Serial Sketch Number",
+                    "placeholder": "Serial Sketch Number",
+                    "required": true
+                }
+            },
+            {
+                "key": "landNumber",
+                "type": "custom-input",
+                "props": {
+                    "label": "Land Number",
+                    "placeholder": "Land Number",
+                    "required": true
+                }
+            },
+            {
+                "key": "landArea",
+                "type": "custom-input",
+                "props": {
+                    "label": "Land Area",
+                    "placeholder": "Land Area"
+                }
+            },
+            {
+                "key": "propertyOwnershipDeed",
                 "type": "file",
-                "templateOptions": {
-                    "label": "Profile Picture",
+                "props": {
+                    "label": "Copy of Property Ownership Deed",
                     "multiple": false,
-                    "accept": "image/*",
-                    "maxFileSize": 2000000
+                    "accept": ".pdf,.jpg,.jpeg,.png",
+                    "maxFileSize": 5242880,
+                    "chooseLabel": "Choose File",
+                    "required": true
                 }
             },
             {
-                "key": "attachments",
+                "key": "civilIdOrCR",
                 "type": "file",
-                "templateOptions": {
-                    "label": "Attachments",
-                    "multiple": true,
-                    "accept": ".pdf,.doc,.docx,.jpg,.png",
-                    "maxFileSize": 10000000
+                "props": {
+                    "label": "Copy of Civil ID / Commercial Registration (CR)",
+                    "multiple": false,
+                    "accept": ".pdf,.jpg,.jpeg,.png",
+                    "maxFileSize": 5242880,
+                    "chooseLabel": "Choose File",
+                    "required": true
+                }
+            },
+            {
+                "key": "landSurveySketch",
+                "type": "file",
+                "props": {
+                    "label": "Copy of Land Survey Sketch",
+                    "multiple": false,
+                    "accept": ".pdf,.jpg,.jpeg,.png",
+                    "maxFileSize": 5242880,
+                    "chooseLabel": "Choose File",
+                    "required": true
                 }
             }
         ]

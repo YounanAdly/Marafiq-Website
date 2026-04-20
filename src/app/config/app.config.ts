@@ -1,12 +1,12 @@
 export const AppConfig = {
-  appName: 'CustomTemplate',
+  appName: 'Marafiq',
   source: 'Web',
 
   // Language configuration
   enableLanguage: true,
   defaultLanguage: 'ar',
   supportedLanguages: ['en', 'ar'],
- 
+
   // Theming configuration
   enableTheme: false,
   defaultTheme: 'light',
@@ -14,7 +14,7 @@ export const AppConfig = {
 
   // Font size configuration
   fontSize: {
-    enable: true,
+    enable: false,
     default: 10,
     min: 8,
     max: 12,

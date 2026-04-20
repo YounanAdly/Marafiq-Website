@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpEventType } from '@angular/common/http';
 import { Component, inject, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FieldType } from '@ngx-formly/core';
 import { MessageService } from 'primeng/api';
 import { FileUpload, FileUploadModule } from 'primeng/fileupload';
-import { LoaderService } from '../../services/loader.service';
 import { BaseCrudService } from '../../services/base-crud.service';
 
 interface UploadedFile {
@@ -21,19 +20,23 @@ interface UploadedFile {
     imports: [CommonModule, FormsModule, FileUploadModule],
     providers: [MessageService],
     template: `
-    <div class="form-field">
+        <div class="form-field" [class.dimmed]="isDimmed">
       <p-fileUpload
        #fileUpload
         mode="basic"
-        chooseLabel="Choose"
+                [chooseLabel]="chooseLabel"
         [name]="id"
         [multiple]="props['multiple'] ?? false"
         [accept]="props['accept'] || '*'"
         [maxFileSize]="props['maxFileSize'] || 5000000"
+                [disabled]="isDimmed"
         [auto]="true"
         customUpload
         (uploadHandler)="onSelect($event)"
       ></p-fileUpload>
+                @if(files().length === 0) {
+                    <p class="file-name-placeholder">No File Selected</p>
+                }
         @if(files().length > 0){
             <div class="uploaded-files" >
                 @for (file of files(); track $index) {
@@ -53,12 +56,34 @@ interface UploadedFile {
                 }
             </div>
          }
+      <div class="file-hint">Maximum attachment size: <strong>{{ maxSizeMb }} MB</strong></div>
     </div>
     
   `,
     styles: [
         `
-      .uploaded-files {
+            .form-field {
+                width: 100%;
+            }
+            :host ::ng-deep .p-fileupload {
+                width: 100%;
+            }
+            :host ::ng-deep .p-fileupload .p-button {
+                border: 1px solid #e8a712;
+                border-radius: 8px;
+                background: #ffffff;
+                color: #e8a712;
+                font-family: 'AvantGarde Bk BT', 'Century Gothic', 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+            }
+            .file-name-placeholder {
+                margin: 8px 0 0;
+                color: #5e5e62;
+                font-family: 'AvantGarde Bk BT', 'Century Gothic', 'Trebuchet MS', sans-serif;
+                font-size: 14px;
+                line-height: 21px;
+            }
+            .uploaded-files {
         margin-top: 10px;
         display: flex;
         flex-direction: column;
@@ -75,16 +100,38 @@ interface UploadedFile {
         cursor: pointer;
         color: red;
       }
+            .file-hint {
+                margin-top: 8px;
+                color: #5e5e62;
+                font-family: 'AvantGarde Bk BT', 'Century Gothic', 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+                line-height: 20px;
+            }
+            .dimmed {
+                opacity: 0.9;
+            }
     `,
     ],
 })
 export class FormlyFileUploadType extends FieldType {
-    private loader = inject(LoaderService)
     private baseCrudService = inject(BaseCrudService)
     private messageService = inject(MessageService);
 
     files = signal<UploadedFile[]>([]);
     @ViewChild('fileUpload', { static: false }) fileUpload!: FileUpload
+
+    get isDimmed(): boolean {
+        return !!this.props['dimmed'];
+    }
+
+    get chooseLabel(): string {
+        return (this.props['chooseLabel'] as string) || 'Choose File';
+    }
+
+    get maxSizeMb(): number {
+        const maxFileSize = Number(this.props['maxFileSize'] || 5000000);
+        return Math.max(1, Math.round(maxFileSize / (1024 * 1024)));
+    }
 
     /** Triggered when a file is selected */
     onSelect(event: any) {

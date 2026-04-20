@@ -1,0 +1,74 @@
+<div class="login-page">
+
+  <!-- ── Background: flipped image + gradient overlay ── -->
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-flip">
+      <img class="bg-img" [src]="bgImage" alt="">
+      <div class="bg-overlay"></div>
+    </div>
+  </div>
+
+  <!-- ── Navigation logo ── -->
+  <header class="nav-header">
+    <a href="#" class="nav-logo-link">
+      <img [src]="logoNav" class="nav-logo-img" alt="Marafiq">
+    </a>
+  </header>
+
+  <!-- ── Main: hero left + card right ── -->
+  <main class="main-content">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-body">
+        <h1 class="hero-title">Easy Requests,<br>Fast Processing</h1>
+        <p class="hero-sub">
+          Submit service requests, track their progress, and receive updates
+          seamlessly without the need for in-person visits.
+        </p>
+      </div>
+      <div class="dots">
+        <span class="dot dot-lg"></span>
+        <span class="dot dot-md"></span>
+        <span class="dot dot-sm"></span>
+      </div>
+    </div>
+
+    <!-- Login card -->
+    <div class="card">
+      <div class="card-inner">
+
+        <!-- Logo + welcome -->
+        <div class="card-top">
+          <img class="card-logo" [src]="logoCard" alt="Marafiq">
+          <div class="card-welcome">
+            <h2 class="welcome-h">Welcome To Marafiq,</h2>
+            <p class="welcome-p">Log in to access your services, track requests, and stay connected.</p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="card-form">
+          <h3 class="form-h">Sign in to your account</h3>
+          <form class="form-fields" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <formly-form [form]="loginForm" [fields]="loginFields" [model]="loginModel"></formly-form>
+            <!-- Actions -->
+            <div class="form-actions">
+              <app-button type="submit" variant="login-primary" [fullWidth]="true">Log In</app-button>
+
+              <div class="or-row">
+                <span class="or-line or-line-l"></span>
+                <span class="or-label">or</span>
+                <span class="or-line or-line-r"></span>
+              </div>
+
+              <app-button type="button" variant="login-outline" [fullWidth]="true">Create New Account</app-button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
