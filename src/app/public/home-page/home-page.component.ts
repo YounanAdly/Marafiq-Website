@@ -65,7 +65,7 @@ export class HomePageComponent {
   async loadPage() {
     this.form = new FormGroup({});
     this.fields = formConfig;
-    this.users$ = this.baseCrudService.get(Constants.API_URL);
+    // this.users$ = this.baseCrudService.get(Constants.API_URL);
     this.formlyService.setDropdownValue(this.fields, 'connectionType', [
       { label: 'Domestic', value: 'domestic' },
       { label: 'Commercial', value: 'commercial' },
