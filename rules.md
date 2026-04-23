@@ -146,6 +146,31 @@ Important note:
 4. Field mutation helper service
     - File: `src/app/shared/services/formly.service.ts`
 
+### JSON-Driven Form Configuration (Mandatory Pattern)
+Every page that renders a Formly form MUST define its field configurations in a `form.json` file co-located with the page component, not inline in TypeScript.
+
+**Rule**: Do NOT define `FormlyFieldConfig[]` arrays inline in component TypeScript. Every form field (including labels, placeholders, validators, props, and type) must live in a `form.json` file.
+
+Pattern (followed by `home-page` and `create-account`):
+1. Create `form.json` in the page folder (e.g., `src/app/public/my-page/form.json`).
+2. Import it in the component: `import formConfig from './form.json';`
+3. Assign to the fields property: `fields: FormlyFieldConfig[] = formConfig as unknown as FormlyFieldConfig[];`
+4. Apply any runtime-only values (dropdown options, dynamic defaults) using `FormlyService` after load.
+
+What belongs in `form.json`:
+- `key`, `type`, `className`
+- `validators.validation` (named validator string arrays)
+- All `props` including `placeholder` (translation key string), `variant`, `required`, `type`, `inputmode`, `autocomplete`, `maxLength`, `pattern`, `prefixIconSrc` (static asset path string), `containerClass`, `inputClass`, `iconClass`, `dimmed`, `multiple`, `accept`, `maxFileSize`, `chooseLabel`, etc.
+
+What stays in TypeScript (set programmatically after load):
+- Dropdown `options` arrays (via `FormlyService.setDropdownValue()`)
+- Any prop that depends on a runtime variable or API response.
+
+Existing `form.json` references:
+- `src/app/public/home-page/form.json`
+- `src/app/public/create-account/form.json`
+- `src/app/public/login/form.json`
+
 ---
 
 ## 3) Reusable Services Inventory
@@ -222,6 +247,7 @@ Use this workflow every time a new Figma design is provided.
 5. New page-level SEO should use `SeoService`.
 6. New language-visible text must use translation keys (`en.json`/`ar.json`).
 7. Theme-aware colors should use CSS variables in theme files instead of hard-coded values when possible.
+8. **Any page with a Formly form must define its fields in a co-located `form.json` file.** Never define `FormlyFieldConfig[]` arrays inline in TypeScript. Import the JSON and cast: `formConfig as unknown as FormlyFieldConfig[]`. This applies to every label, placeholder, prop, validator, and field type.
 
 ---
 

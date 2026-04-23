@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonComponent } from '../../shared/components/button.component';
 import { OtpModalComponent } from '../../shared/components/otp-modal.component';
+import formConfig from './form.json';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,6 @@ export class LoginComponent {
   readonly bgImage = 'https://www.figma.com/api/mcp/asset/46108dd2-eed9-409b-a7cd-66bd736adcbb';
   readonly logoCard = 'https://www.figma.com/api/mcp/asset/1c285fe9-9811-424b-8361-6e1ed7b6dfde';
   readonly logoNav = 'https://www.figma.com/api/mcp/asset/20967614-fd03-42e3-8bf7-351c6042758d';
-  readonly phoneIcon = 'https://www.figma.com/api/mcp/asset/a86a3276-ed46-4624-b770-d2255519eec2';
   readonly otpLength = 4;
 
   readonly loginForm = new FormGroup({});
@@ -33,30 +33,7 @@ export class LoginComponent {
     private readonly route: ActivatedRoute,
   ) {}
 
-  readonly loginFields: FormlyFieldConfig[] = [
-    {
-      key: 'mobileNumber',
-      type: 'custom-input',
-      wrappers: [],
-      props: {
-        required: true,
-        placeholder: 'Mobile Number',
-        variant: 'login',
-        type: 'tel',
-        inputmode: 'tel',
-        autocomplete: 'tel',
-        maxLength: 8,
-        pattern: '^\\d+$',
-        validators: {
-          validation: ['numbersOnly', 'mobileNumberLength']
-        },
-        prefixIconSrc: this.phoneIcon,
-        containerClass: 'input-label',
-        inputClass: 'field-input',
-        iconClass: 'field-icon',
-      },
-    },
-  ];
+  readonly loginFields: FormlyFieldConfig[] = formConfig as unknown as FormlyFieldConfig[];
 
   onSubmit(): void {
     if (this.loginForm.valid) {

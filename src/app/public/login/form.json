@@ -1,0 +1,28 @@
+[
+  {
+    "fieldGroup": [
+      {
+        "key": "mobileNumber",
+        "type": "custom-input",
+        "wrappers": [],
+        "validators": {
+          "validation": ["numbersOnly", "mobileNumberLength"]
+        },
+        "props": {
+          "required": true,
+          "placeholder": "Mobile Number",
+          "variant": "login",
+          "type": "tel",
+          "inputmode": "tel",
+          "autocomplete": "tel",
+          "maxLength": 8,
+          "pattern": "^\\d+$",
+          "prefixIconSrc": "https://www.figma.com/api/mcp/asset/a86a3276-ed46-4624-b770-d2255519eec2",
+          "containerClass": "input-label",
+          "inputClass": "field-input",
+          "iconClass": "field-icon"
+        }
+      }
+    ]
+  }
+]

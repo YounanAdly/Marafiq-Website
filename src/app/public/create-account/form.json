@@ -1,0 +1,71 @@
+[
+  {
+    "fieldGroup": [
+      {
+        "key": "fullName",
+        "type": "custom-input",
+        "className": "create-account-form-field",
+        "validators": {
+          "validation": ["fullNamePattern"]
+        },
+        "props": {
+          "translate": true,
+          "required": true,
+          "minLength": 2,
+          "pattern": "^[A-Za-z\\u0600-\\u06FF\\s'.-]+$",
+          "placeholder": "createAccount.fields.fullName",
+          "variant": "login",
+          "autocomplete": "name",
+          "prefixIconSrc": "assets/images/create-account-name-icon.png",
+          "containerClass": "input-label",
+          "inputClass": "field-input",
+          "iconClass": "field-icon"
+        }
+      },
+      {
+        "key": "emailAddress",
+        "type": "custom-input",
+        "className": "create-account-form-field",
+        "validators": {
+          "validation": ["emailPattern"]
+        },
+        "props": {
+          "translate": true,
+          "required": true,
+          "placeholder": "createAccount.fields.emailAddress",
+          "variant": "login",
+          "type": "email",
+          "inputmode": "email",
+          "autocomplete": "email",
+          "prefixIconSrc": "assets/images/create-account-email-icon.png",
+          "containerClass": "input-label",
+          "inputClass": "field-input",
+          "iconClass": "field-icon"
+        }
+      },
+      {
+        "key": "mobileNumber",
+        "type": "custom-input",
+        "className": "create-account-form-field",
+        "validators": {
+          "validation": ["numbersOnly", "mobileNumberLength"]
+        },
+        "props": {
+          "translate": true,
+          "required": true,
+          "placeholder": "createAccount.fields.mobileNumber",
+          "variant": "login",
+          "type": "tel",
+          "inputmode": "tel",
+          "autocomplete": "tel",
+          "maxLength": 8,
+          "pattern": "^\\d+$",
+          "prefixIconSrc": "assets/images/create-account-phone-icon.png",
+          "containerClass": "input-label",
+          "inputClass": "field-input",
+          "iconClass": "field-icon"
+        }
+      }
+    ]
+  }
+]
