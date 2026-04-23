@@ -18,7 +18,7 @@ export class AppComponent {
   public languageService = inject(LanguageService);
   private router = inject(Router);
   @ViewChild('mainContent') mainContent!: ElementRef;
-  hidePublicHeaderOnRoutes = ['/contact-us', '/login', '/create-account'];
+  hidePublicHeaderOnRoutes = ['/home', '/contact-us', '/login', '/create-account'];
   hidePublicFooterOnRoutes = ['/login', '/create-account'];
   hideHeader: boolean = false;
   hideFooter: boolean = false;

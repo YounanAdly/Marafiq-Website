@@ -27,7 +27,7 @@ When implementing a new Figma design, always read this file first and reuse exis
 - `src/app/layouts/footer/*`: reusable footer shell.
 
 ### Public Pages
-- `src/app/public/home-page/*`: demo page using translation, Formly dynamic form, theme/lang/font controls, map.
+- `src/app/public/home/*`: routed home page (`/:lang/home`) with empty starter layout and language/theme/font controls; header/footer are provided by root app shell.
 - `src/app/public/contact-us/*`: static contact page placeholder.
 - `src/app/public/login/*`: standalone login UI based on Figma assets.
 - `src/app/public/create-account/*`: standalone create-account UI reusing login shell + Formly custom-input + shared button.
@@ -151,7 +151,7 @@ Every page that renders a Formly form MUST define its field configurations in a 
 
 **Rule**: Do NOT define `FormlyFieldConfig[]` arrays inline in component TypeScript. Every form field (including labels, placeholders, validators, props, and type) must live in a `form.json` file.
 
-Pattern (followed by `home-page` and `create-account`):
+Pattern (followed by `create-account` and `login`):
 1. Create `form.json` in the page folder (e.g., `src/app/public/my-page/form.json`).
 2. Import it in the component: `import formConfig from './form.json';`
 3. Assign to the fields property: `fields: FormlyFieldConfig[] = formConfig as unknown as FormlyFieldConfig[];`
@@ -167,7 +167,6 @@ What stays in TypeScript (set programmatically after load):
 - Any prop that depends on a runtime variable or API response.
 
 Existing `form.json` references:
-- `src/app/public/home-page/form.json`
 - `src/app/public/create-account/form.json`
 - `src/app/public/login/form.json`
 

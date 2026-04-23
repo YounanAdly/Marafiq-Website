@@ -29,11 +29,11 @@
   z-index: 0;
 }
 
-/* scaleX(-1) = same visual as Figma's scaleY(-1) + rotate(180deg) */
+
 .bg-flip {
   position: absolute;
   inset: 0;
-  transform: scaleX(-1);
+  transform: scaleX(1);
 }
 
 .bg-img {

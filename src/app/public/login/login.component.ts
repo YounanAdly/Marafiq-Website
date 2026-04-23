@@ -69,6 +69,7 @@ export class LoginComponent {
 
   verifyOtp(): void {
     this.isOtpModalOpen = false;
-    this.router.navigate(['../home'], { relativeTo: this.route });
+    const lang = this.route.snapshot.paramMap.get('lang') || 'en';
+    this.router.navigateByUrl(`/${lang}/home`);
   }
 }

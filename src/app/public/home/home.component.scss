@@ -1,0 +1,500 @@
+.home-hero {
+  position: relative;
+  min-height: 860px;
+  padding: 45px 0 96px;
+  background-image: url('/assets/images/bgHome.svg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    var(--color-overlay-start) 0%,
+    var(--color-overlay-mid) 58%,
+    var(--color-overlay-end) 90%
+  );
+  z-index: 0;
+}
+
+.hero-topbar-wrap,
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-topbar-wrap {
+  width: min(1312px, calc(100% - 36px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 171px 1fr;
+  column-gap: 162px;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 171px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.hero-nav-shell {
+  width: 979px;
+  max-width: 100%;
+  min-height: 57px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 31px;
+  padding: 14px 16px;
+  background: rgba(235, 246, 247, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-nav a {
+  color: var(--color-modal-bg);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.hero-nav .home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-nav .home-link img {
+  width: 20px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.hero-nav a:hover {
+  opacity: 0.82;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  width: 173px;
+  max-width: 100%;
+  justify-content: space-between;
+}
+
+.lang-chip {
+  border: 0;
+  background: transparent;
+  color: var(--color-modal-bg);
+  padding: 0;
+}
+
+.icon-btn,
+.lang-chip,
+.profile-btn {
+  border: 0;
+  background: transparent;
+  color: var(--color-modal-bg);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+}
+
+.icon-btn {
+  width: 17px;
+  height: 24px;
+  position: relative;
+}
+
+.icon-btn img,
+.lang-chip img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.notification-btn {
+  width: 21px;
+  height: 24px;
+}
+
+.notification-btn .badge {
+  position: absolute;
+  top: 1px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff0000;
+  color: var(--color-modal-bg);
+  font-family: 'Inter', sans-serif;
+  font-size: 6px;
+  line-height: 10px;
+  text-align: center;
+}
+
+.lang-chip {
+  width: 50px;
+  height: 21px;
+  justify-content: space-between;
+  gap: 5px;
+  color: var(--color-modal-bg);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.lang-chip img {
+  width: 19px;
+  height: 19px;
+}
+
+.profile-btn {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.profile-btn .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--color-teal-dark);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.profile-btn .caret {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-52%);
+  color: var(--color-orange);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 130px auto 0;
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0;
+  color: var(--color-modal-bg);
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: clamp(38px, 6.8vw, 88px);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 16px;
+}
+
+.hero-title .accent {
+  color: var(--color-orange);
+}
+
+.who-we-are {
+  background: #ffffff;
+  padding: 57px 0 94px;
+}
+
+.who-wrap {
+  width: min(1412px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.who-head {
+  min-height: 73px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.who-kicker {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #0076bf;
+  text-transform: lowercase;
+}
+
+.who-title {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 50px;
+  color: var(--color-teal);
+  text-transform: uppercase;
+}
+
+.who-more-btn {
+  border: 0;
+  width: 98px;
+  height: 35px;
+  border-radius: 18px;
+  background: #E8A712;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 19px;
+}
+
+.who-more-btn span {
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-modal-bg);
+}
+
+.who-cards {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 746px 313px 313px;
+  gap: 20px;
+}
+
+.who-card {
+  position: relative;
+  height: 290px;
+  border-radius: 31px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.who-card h3 {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  text-transform: uppercase;
+}
+
+.who-card p {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+}
+
+.who-card-main {
+  padding: 30px;
+  background: linear-gradient(99deg, #74c9d2 0%, #d5dde2 100%);
+}
+
+.who-card-main h3 {
+  max-width: 557px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  color: #114390;
+}
+
+.who-card-main p {
+  margin-top: 22px;
+  max-width: 590px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 31px;
+  color: var(--color-body-text);
+}
+
+.who-pipes {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  width: 132px;
+  height: 202px;
+  object-fit: contain;
+}
+
+.who-card-side {
+  padding: 30px 22px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 46%),
+    linear-gradient(180deg, #65b8c4 0%, #2f699f 45%, #17325a 100%);
+}
+
+.who-card-side::before {
+  content: '';
+  position: absolute;
+  left: -70px;
+  bottom: -70px;
+  width: 290px;
+  height: 180px;
+  background: linear-gradient(315deg, rgba(0, 0, 0, 0) 20%, rgba(15, 33, 60, 0.48) 100%);
+  transform: rotate(-9deg);
+  pointer-events: none;
+}
+
+.who-card-side h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  color: #d6e9ee;
+}
+
+.who-card-side p {
+  position: relative;
+  z-index: 1;
+  margin-top: 62px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 29px;
+  color: var(--color-modal-bg);
+}
+
+@media (max-width: 992px) {
+  .home-hero {
+    min-height: 720px;
+    padding: 24px 0 64px;
+  }
+
+  .hero-topbar-wrap {
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+    justify-items: start;
+  }
+
+  .hero-logo {
+    width: 146px;
+    height: 42px;
+  }
+
+  .hero-nav-shell {
+    border-radius: 20px;
+    padding: 12px;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+  }
+
+  .hero-nav {
+    justify-content: center;
+    gap: 10px 14px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .profile-btn .caret {
+    right: -10px;
+  }
+
+  .hero-content {
+    margin-top: 72px;
+  }
+
+  .hero-title {
+    gap: 0 10px;
+  }
+
+  .who-we-are {
+    padding: 44px 0 64px;
+  }
+
+  .who-wrap {
+    width: calc(100% - 24px);
+  }
+
+  .who-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .who-kicker {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .who-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .who-more-btn {
+    margin-top: 0;
+  }
+
+  .who-cards {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .who-card {
+    height: auto;
+    min-height: 290px;
+  }
+
+  .who-card-main h3 {
+    font-size: 34px;
+    line-height: 40px;
+    max-width: 100%;
+  }
+
+  .who-card-main p {
+    font-size: 16px;
+    line-height: 30px;
+    max-width: 100%;
+    margin-right: 130px;
+  }
+
+  .who-pipes {
+    width: 220px;
+    height: auto;
+  }
+
+  .who-card-side h3 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .who-card-side p {
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+}

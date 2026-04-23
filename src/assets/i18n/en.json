@@ -19,6 +19,63 @@
       "url": "https://myportal.com/home",
       "author": "MyPortal Team",
       "type": "website"
+    },
+    "hero": {
+      "logoAlt": "Marafiq",
+      "navLabel": "Home main navigation",
+      "actionsLabel": "Home header actions",
+      "nav": {
+        "aboutUs": "About Us",
+        "services": "Services",
+        "complaints": "Complaints",
+        "inquiry": "Inquiry",
+        "mediaCenter": "Media Center",
+        "faq": "FAQ's",
+        "dashboard": "My Dashboard"
+      },
+      "actions": {
+        "phone": "Contact phone",
+        "notifications": "Notifications",
+        "language": "Language",
+        "currentLanguage": "Current language"
+      },
+      "title": {
+        "engineering": "Engineering",
+        "foundation": "the Foundations of",
+        "sustainable": "Sustainable",
+        "growth": "Growth"
+      }
+    },
+    "about": {
+      "kicker": "about us",
+      "title": "WHO WE ARE ?",
+      "viewMore": "View More",
+      "cards": {
+        "powering": {
+          "title": "POWERING WHAT MATTERS MOST",
+          "body": "At Marafiq, we are more than a utility provider, we are a partner in progress, committed to enabling growth, resilience, and sustainable value for Oman and beyond. We serve a diverse base of strategic clients, ensuring uninterrupted access to electricity, water, steam, and industrial gases, while supporting their focus on innovation and core business priorities."
+        },
+        "redefining": {
+          "title": "REDEFINING",
+          "body": "Our mission goes beyond operations. We are working to redefine what a modern utility provider can be adaptive, purpose-driven..."
+        },
+        "efficiency": {
+          "title": "EFFICIENCY",
+          "body": "Since our founding in 2013, Marafiq has become a key contributor to national development by delivering integrated utility ..."
+        }
+      }
+    },
+    "page": {
+      "title": "Home Page",
+      "subtitle": "Empty starter page with language, theme, and font-size controls.",
+      "languageLabel": "Language",
+      "themeLabel": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeGreen": "Green",
+      "fontSizeLabel": "Font Size",
+      "emptyLine1": "Page content intentionally left empty.",
+      "emptyLine2": "Header and footer are rendered by the main app shell."
     }
   },
   "login": {

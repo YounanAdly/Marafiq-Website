@@ -1,0 +1,95 @@
+<section class="home-hero">
+  <div class="hero-overlay"></div>
+
+  <header class="hero-topbar-wrap">
+    <img
+      class="hero-logo"
+      src="assets/images/logoNav.svg"
+      [attr.alt]="'home.hero.logoAlt' | translate"
+    />
+
+    <div class="hero-nav-shell">
+      <nav class="hero-nav" [attr.aria-label]="'home.hero.navLabel' | translate">
+        <a href="#" class="home-link">
+          <img src="assets/images/home_icon.svg" alt="" />
+          <span>{{ 'home.hero.nav.aboutUs' | translate }}</span>
+        </a>
+        <a href="#">{{ 'home.hero.nav.services' | translate }}</a>
+        <a href="#">{{ 'home.hero.nav.complaints' | translate }}</a>
+        <a href="#">{{ 'home.hero.nav.inquiry' | translate }}</a>
+        <a href="#">{{ 'home.hero.nav.mediaCenter' | translate }}</a>
+        <a href="#">{{ 'home.hero.nav.faq' | translate }}</a>
+        <a href="#">{{ 'home.hero.nav.dashboard' | translate }}</a>
+      </nav>
+
+      <div class="hero-actions" [attr.aria-label]="'home.hero.actionsLabel' | translate">
+        <button type="button" class="icon-btn" [attr.aria-label]="'home.hero.actions.phone' | translate">
+          <img src="assets/images/phone_icon.svg" alt="" />
+        </button>
+
+        <span class="divider" aria-hidden="true"></span>
+
+        <button type="button" class="icon-btn notification-btn" [attr.aria-label]="'home.hero.actions.notifications' | translate">
+          <img src="assets/images/notification_icon.svg" alt="" />
+          <span class="badge">2</span>
+        </button>
+
+        <span class="divider" aria-hidden="true"></span>
+
+        <button type="button" class="lang-chip" (click)="toggleLanguage()" [attr.aria-label]="'home.hero.actions.language' | translate">
+          <img src="assets/images/lang_icon.svg" alt="" />
+          <span>{{ currentLang === 'en' ? 'Ar' : 'En' }}</span>
+        </button>
+
+        <span class="divider" aria-hidden="true"></span>
+
+        <button type="button" class="profile-btn" [attr.aria-label]="'home.hero.actions.currentLanguage' | translate">
+          <span class="avatar"></span>
+          <span class="caret">▾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="accent">{{ 'home.hero.title.engineering' | translate }}</span>
+      <span>{{ 'home.hero.title.foundation' | translate }}</span>
+      <span>{{ 'home.hero.title.sustainable' | translate }}</span>
+      <span class="accent">{{ 'home.hero.title.growth' | translate }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="who-we-are">
+  <div class="who-wrap">
+    <div class="who-head">
+      <div>
+        <p class="who-kicker">{{ 'home.about.kicker' | translate }}</p>
+        <h2 class="who-title">{{ 'home.about.title' | translate }}</h2>
+      </div>
+
+      <button type="button" class="who-more-btn" [attr.aria-label]="'home.about.viewMore' | translate">
+        <span>{{ 'home.about.viewMore' | translate }}</span>
+      </button>
+    </div>
+
+    <div class="who-cards">
+      <article class="who-card who-card-main">
+        <h3>{{ 'home.about.cards.powering.title' | translate }}</h3>
+        <p>{{ 'home.about.cards.powering.body' | translate }}</p>
+        <img src="assets/images/water.svg" alt="" aria-hidden="true" class="who-pipes" />
+      </article>
+
+      <article class="who-card who-card-side">
+        <h3>{{ 'home.about.cards.redefining.title' | translate }}</h3>
+        <p>{{ 'home.about.cards.redefining.body' | translate }}</p>
+      </article>
+
+      <article class="who-card who-card-side">
+        <h3>{{ 'home.about.cards.efficiency.title' | translate }}</h3>
+        <p>{{ 'home.about.cards.efficiency.body' | translate }}</p>
+      </article>
+    </div>
+  </div>
+</section>
