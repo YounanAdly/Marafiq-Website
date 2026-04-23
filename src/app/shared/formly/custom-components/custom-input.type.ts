@@ -68,8 +68,8 @@ import { InputTextModule } from 'primeng/inputtext';
       min-height: 56px;
       padding: 8px 16px;
       box-sizing: border-box;
-      background: #ffffff;
-      border: 1px solid #e4e2e6;
+      background: var(--color-modal-bg);
+      border: 1px solid var(--color-form-border);
       border-radius: 8px;
       cursor: text;
       justify-content: flex-end;
@@ -77,8 +77,8 @@ import { InputTextModule } from 'primeng/inputtext';
     }
 
     .form-input-container:focus-within {
-      border-color: #008c98;
-      box-shadow: 0 0 0 3px rgba(0, 140, 152, 0.12);
+      border-color: var(--color-form-border);
+      box-shadow: none;
     }
 
     .form-field-input {
@@ -91,24 +91,24 @@ import { InputTextModule } from 'primeng/inputtext';
       font-weight: 400;
       font-size: 14px;
       line-height: 21px;
-      color: #5e5e62;
+      color: var(--color-form-text);
       text-align: left;
       box-shadow: none;
     }
 
     .form-field-input::placeholder {
-      color: #5e5e62;
+      color: var(--color-form-text);
     }
 
     .form-input-container.is-dimmed {
-      background: #f1f1f1;
-      border-color: #d9d9d9;
+      background: var(--color-surface-muted);
+      border-color: var(--color-form-border-dimmed);
       cursor: default;
     }
 
     .form-input-container.is-dimmed .form-field-input,
     .form-input-container.is-dimmed .form-field-input::placeholder {
-      color: #859293;
+      color: var(--color-placeholder-dimmed);
     }
 
     .input-label {
@@ -119,8 +119,8 @@ import { InputTextModule } from 'primeng/inputtext';
       height: 45px;
       padding: 6px 20px;
       box-sizing: border-box;
-      background: #ffffff;
-      border: 1px solid #e0e0e0;
+      background: var(--color-modal-bg);
+      border: 1px solid var(--color-input-border);
       border-radius: 16px;
       cursor: text;
       justify-content: flex-end;
@@ -128,8 +128,8 @@ import { InputTextModule } from 'primeng/inputtext';
     }
 
     .input-label:focus-within {
-      border-color: #008c98;
-      box-shadow: 0 0 0 3px rgba(0, 140, 152, 0.12);
+      border-color: var(--color-input-border);
+      box-shadow: none;
     }
 
     .field-icon {
@@ -148,13 +148,22 @@ import { InputTextModule } from 'primeng/inputtext';
       font-weight: 400;
       font-size: 14px;
       line-height: 21px;
-      color: #2b2b2b;
+      color: var(--color-body-text);
       text-align: left;
       box-shadow: none;
     }
 
+    .field-input.p-inputtext,
+    .field-input.p-inputtext:focus,
+    .form-field-input.p-inputtext,
+    .form-field-input.p-inputtext:focus {
+      border: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
     .field-input::placeholder {
-      color: rgba(133, 146, 147, 0.57);
+      color: var(--color-placeholder-muted);
     }
   `],
 })

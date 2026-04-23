@@ -82,3 +82,35 @@ export function numberOnlyValidator(control: AbstractControl): any {
 
     return null;
 }
+
+export function fullNamePatternValidator(control: AbstractControl): ValidationErrors | null {
+    const value = (control.value || '').trim();
+
+    if (!value) {
+        return null;
+    }
+
+    const fullNamePattern = /^[\p{L}\s'.-]+$/u;
+
+    if (fullNamePattern.test(value)) {
+        return null;
+    }
+
+    return { fullNamePattern: true };
+}
+
+export function mobileNumberLengthValidator(control: AbstractControl): ValidationErrors | null {
+    const value = (control.value || '').toString();
+
+    if (!value) {
+        return null;
+    }
+
+    const digits = value.replace(/\D/g, '');
+
+    if (digits.length === 8) {
+        return null;
+    }
+
+    return { mobileNumberLength: true };
+}

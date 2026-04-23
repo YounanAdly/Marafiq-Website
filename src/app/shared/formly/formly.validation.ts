@@ -7,19 +7,31 @@ export function formlyTranslateExtension(translate: TranslateService) {
             {
                 name: 'required',
                 message() {
-                    return translate.stream('GOODBYE');
+                    return translate.stream('validation.required');
                 },
             },
             {
                 name: 'numbersOnly',
                 message() {
-                    return translate.stream('numbersOnly');
+                    return translate.stream('validation.numbersOnly');
                 }
             },
             {
                 name: 'emailPattern',
                 message() {
-                    return translate.stream('emailPattern');
+                    return translate.stream('validation.emailPattern');
+                }
+            },
+            {
+                name: 'fullNamePattern',
+                message() {
+                    return translate.stream('validation.fullNamePattern');
+                }
+            },
+            {
+                name: 'mobileNumberLength',
+                message() {
+                    return translate.stream('validation.mobileNumberLength');
                 }
             }
         ],

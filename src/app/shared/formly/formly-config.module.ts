@@ -9,7 +9,14 @@ import { CustomCalendarTypeComponent } from './custom-components/custom-calendar
 import { CustomMultiSelectTypeComponent } from './custom-components/custom-multiselect.types';
 import { FormlyFileUploadType } from './custom-components/custom-file.types';
 import { customSearchableSelectComponent } from './custom-components/custom-searchable-select.types';
-import { emailPatternValidator, numberOnlyValidator, passwordMatchValidator, passwordStrengthValidator } from './formly.validators';
+import {
+    emailPatternValidator,
+    fullNamePatternValidator,
+    mobileNumberLengthValidator,
+    numberOnlyValidator,
+    passwordMatchValidator,
+    passwordStrengthValidator
+} from './formly.validators';
 @NgModule({
     imports: [
         FormsModule,
@@ -28,8 +35,12 @@ import { emailPatternValidator, numberOnlyValidator, passwordMatchValidator, pas
                     validation: numberOnlyValidator
                 },
                 {
-                    name: 'emailPattern',
-                    validation: emailPatternValidator
+                    name: 'fullNamePattern',
+                    validation: fullNamePatternValidator
+                },
+                {
+                    name: 'mobileNumberLength',
+                    validation: mobileNumberLengthValidator
                 }
             ],
             types: [
