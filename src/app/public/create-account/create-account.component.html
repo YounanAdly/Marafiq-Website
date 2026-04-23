@@ -1,0 +1,76 @@
+<div class="create-account-page">
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-flip">
+      <img class="bg-img" [src]="bgImage" alt="">
+      <div class="bg-overlay"></div>
+    </div>
+  </div>
+
+  <header class="nav-header">
+    <a href="#" class="nav-logo-link" aria-label="Marafiq home logo">
+      <img [src]="logoNav" class="nav-logo-img" alt="Marafiq">
+    </a>
+  </header>
+
+  <main class="main-content">
+    <div class="hero">
+      <div class="hero-body">
+        <h1 class="hero-title">{{ 'createAccount.hero.title' | translate }}</h1>
+        <p class="hero-sub">{{ 'createAccount.hero.description' | translate }}</p>
+      </div>
+      <div class="dots" aria-hidden="true">
+        <span class="dot dot-lg"></span>
+        <span class="dot dot-md"></span>
+        <span class="dot dot-sm"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-top">
+          <img class="card-logo" [src]="logoCard" alt="Marafiq">
+        </div>
+
+        <div class="card-form">
+          <h2 class="form-h">{{ 'createAccount.form.title' | translate }}</h2>
+
+          <form class="form-fields" [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+            <div class="input-list">
+              <formly-form
+                [form]="createAccountForm"
+                [fields]="createAccountFields"
+                [model]="createAccountModel">
+              </formly-form>
+            </div>
+
+            <div class="form-meta">
+               <span class="remember-placeholder"></span> 
+
+              <button type="button" class="already-account" (click)="navigateToLogin()">
+                {{ 'createAccount.form.alreadyHaveAccount' | translate }}
+              </button>
+            </div>
+
+            <app-button type="submit" variant="login-primary" [fullWidth]="true">
+              {{ 'createAccount.form.submit' | translate }}
+            </app-button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-otp-modal
+    [isOpen]="isOtpModalOpen"
+    [otpLength]="otpLength"
+    [maskedMobileNumber]="maskedMobileNumber"
+    (closed)="closeOtpModal()"
+    (verified)="onOtpVerified()">
+  </app-otp-modal>
+
+  <app-success-alert-modal
+    [isOpen]="isSuccessModalOpen"
+    (closed)="closeSuccessModal()"
+    (done)="onSuccessDone()">
+  </app-success-alert-modal>
+</div>
