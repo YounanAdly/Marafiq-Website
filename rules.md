@@ -30,6 +30,7 @@ When implementing a new Figma design, always read this file first and reuse exis
 - `src/app/public/home-page/*`: demo page using translation, Formly dynamic form, theme/lang/font controls, map.
 - `src/app/public/contact-us/*`: static contact page placeholder.
 - `src/app/public/login/*`: standalone login UI based on Figma assets.
+- `src/app/public/create-account/*`: standalone create-account UI reusing login shell + Formly custom-input + shared button.
 
 ### Shared (Primary Reuse Zone)
 - `src/app/shared/components/*`: reusable standalone visual components.
@@ -42,6 +43,29 @@ When implementing a new Figma design, always read this file first and reuse exis
 - `src/styles/global.theme.scss`: global typography/accessibility/loading classes.
 - `src/styles/themes/_light-theme.scss`, `_dark-theme.scss`, `_green-theme.scss`: CSS variable theme classes.
 - `src/assets/i18n/en.json`, `src/assets/i18n/ar.json`: translation catalogs.
+
+#### Design Token CSS Variables (defined in all three theme files)
+| Variable | Value (light) | Figma token |
+|---|---|---|
+| `--color-teal` | `#008c98` | Primary/blue |
+| `--color-teal-dark` | `#00788b` | Secondary/Dark Green |
+| `--color-orange` | `#e8a712` | Primary/Orange |
+| `--color-dark-blue` | `#083a81` | Secondary/Dark Blue |
+| `--color-body-text` | `#2b2b2b` | Black #2b2b2b |
+| `--color-gray` | `#959ca2` | Secondary/Gray |
+| `--color-light-green` | `#5db4bb` | Light Green |
+| `--color-otp-border` | `#b3dde0` | Secondary Color |
+| `--color-modal-bg` | `#ffffff` | White (modal card — theme-invariant) |
+| `--color-modal-input-bg` | `#ffffff` | White (OTP input bg — theme-invariant) |
+| `--color-input-border` | `#e0e0e0` | Login/Create-account input outline |
+| `--color-orange-hover` | `#cf9210` | Primary/Orange hover state |
+| `--color-page-backdrop` | `#001a3f` | Auth page base background |
+| `--color-overlay-start` | `rgba(0, 26, 63, 0)` | Auth hero overlay start |
+| `--color-overlay-mid` | `rgba(0, 120, 139, 0.536)` | Auth hero overlay mid |
+| `--color-overlay-end` | `rgba(0, 26, 63, 0.8)` | Auth hero overlay end |
+
+> **Rule**: Never hardcode these hex values in component SCSS. Always reference via `var(--color-*)`.  
+> `--color-modal-bg` and `--color-modal-input-bg` are intentionally `#ffffff` in all themes because the modal card is always rendered as a white surface (dark-theme only darkens the page background behind it).
 
 ---
 
@@ -56,6 +80,8 @@ When implementing a new Figma design, always read this file first and reuse exis
     - File: `src/app/layouts/footer/footer.component.ts`
     - Selector: `app-footer`
     - Reuse for all shells except routes intentionally excluded.
+    - Reusable inputs: `logoSrc`, `menuLinks`, `contactInfo`, `socialLinks`, `legalLinks`.
+    - Behavior: language-aware route building, ngx-translate labels, RTL-ready layout, and theme-token-based gradient/background styles.
 
 ### Shared UI Components
 1. Global Loader
@@ -73,8 +99,18 @@ When implementing a new Figma design, always read this file first and reuse exis
 4. Reusable Button
     - File: `src/app/shared/components/button.component.ts`
     - Selector: `app-button`
-    - Variants: `login-primary`, `login-outline`, `action-primary`, `action-outline`.
+    - Variants: `login-primary`, `login-outline`, `action-primary`, `action-outline`, `otp-verify`.
     - Use `fullWidth: true` for full-width login actions.
+    - Use `otp-verify` for compact OTP/verification modal primary actions.
+5. OTP Modal
+    - File: `src/app/shared/components/otp-modal.component.ts`
+    - Selector: `app-otp-modal`
+    - Reuse for OTP verification popups on auth flows (`login`, `create-account`) instead of page-level duplicated OTP markup/logic.
+    - Emits `verified` and `closed` outputs; accepts `maskedMobileNumber` and configurable `otpLength`.
+6. Success Alert Modal
+    - File: `src/app/shared/components/success-alert-modal.component.ts`
+    - Selector: `app-success-alert-modal`
+    - Reuse for post-action confirmation popups (for example: account-created confirmation with Done CTA).
 
 ### Reusable Formly Field Types (Registered)
 Source of truth: `src/app/shared/formly/formly-config.module.ts`
@@ -106,6 +142,7 @@ Important note:
     - Files: `src/app/shared/formly/formly.validation.ts`, `src/app/shared/formly/formly.translate-extension.ts`
 3. Common validators
     - File: `src/app/shared/formly/formly.validators.ts`
+    - Standard reusable rules include `emailPattern`, `numbersOnly`, `fullNamePattern`, `mobileNumberLength`.
 4. Field mutation helper service
     - File: `src/app/shared/services/formly.service.ts`
 
