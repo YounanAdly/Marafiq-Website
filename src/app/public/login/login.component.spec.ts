@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { FormlyConfigModule } from '../../shared/formly/formly-config.module';
+import { provideTranslations } from '../../translate.config';
 
 import { LoginComponent } from './login.component';
 
@@ -8,7 +12,8 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginComponent]
+      imports: [LoginComponent, FormlyConfigModule],
+      providers: [provideRouter([]), provideHttpClient(), ...provideTranslations()]
     })
     .compileComponents();
 

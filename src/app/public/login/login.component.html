@@ -62,7 +62,13 @@
                 <span class="or-line or-line-r"></span>
               </div>
 
-              <app-button type="button" variant="login-outline" [fullWidth]="true">Create New Account</app-button>
+              <app-button
+                type="button"
+                variant="login-outline"
+                [fullWidth]="true"
+                (clicked)="onCreateAccount($event)">
+                {{ 'login.actions.createAccount' | translate }}
+              </app-button>
             </div>
           </form>
         </div>
@@ -71,4 +77,12 @@
     </div>
 
   </main>
+
+  <app-otp-modal
+    [isOpen]="isOtpModalOpen"
+    [otpLength]="otpLength"
+    [maskedMobileNumber]="maskedMobileNumber"
+    (closed)="closeOtpModal()"
+    (verified)="verifyOtp()">
+  </app-otp-modal>
 </div>
