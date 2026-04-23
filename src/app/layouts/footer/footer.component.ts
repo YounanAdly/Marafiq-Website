@@ -31,7 +31,7 @@ interface FooterSocialLink {
 export class FooterComponent {
   private readonly languageService = inject(LanguageService);
 
-  @Input() logoSrc = 'https://www.figma.com/api/mcp/asset/20967614-fd03-42e3-8bf7-351c6042758d';
+  @Input() logoSrc = 'assets/images/logoNav.svg';
   @Input() menuLinks: FooterNavLink[] = [
     { labelKey: 'footer.menu.aboutUs', route: 'home' },
     { labelKey: 'footer.menu.services', route: 'home' },

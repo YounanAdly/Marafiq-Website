@@ -16,9 +16,9 @@ import formConfig from './form.json';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  readonly bgImage = 'https://www.figma.com/api/mcp/asset/46108dd2-eed9-409b-a7cd-66bd736adcbb';
-  readonly logoCard = 'https://www.figma.com/api/mcp/asset/1c285fe9-9811-424b-8361-6e1ed7b6dfde';
-  readonly logoNav = 'https://www.figma.com/api/mcp/asset/20967614-fd03-42e3-8bf7-351c6042758d';
+  readonly bgImage = 'assets/images/bgImage.svg';
+  readonly logoCard = 'assets/images/logoCard.svg';
+  readonly logoNav = 'assets/images/logoNav.svg';
   readonly otpLength = 4;
 
   readonly loginForm = new FormGroup({});

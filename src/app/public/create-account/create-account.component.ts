@@ -12,100 +12,100 @@ import { SeoService } from '../../shared/services/seo.service';
 import formConfig from './form.json';
 
 @Component({
-  selector: 'app-create-account',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormlyModule,
-    TranslateModule,
-    RouterModule,
-    ButtonComponent,
-    OtpModalComponent,
-    SuccessAlertModalComponent
-  ],
-  templateUrl: './create-account.component.html',
-  styleUrl: './create-account.component.scss'
+    selector: 'app-create-account',
+    standalone: true,
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        FormlyModule,
+        TranslateModule,
+        RouterModule,
+        ButtonComponent,
+        OtpModalComponent,
+        SuccessAlertModalComponent
+    ],
+    templateUrl: './create-account.component.html',
+    styleUrl: './create-account.component.scss'
 })
 export class CreateAccountComponent {
-  private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
-  private readonly seo = inject(SeoService);
-  private readonly translate = inject(TranslateService);
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    private readonly seo = inject(SeoService);
+    private readonly translate = inject(TranslateService);
 
-  readonly bgImage = 'https://www.figma.com/api/mcp/asset/46108dd2-eed9-409b-a7cd-66bd736adcbb';
-  readonly logoCard = 'https://www.figma.com/api/mcp/asset/1c285fe9-9811-424b-8361-6e1ed7b6dfde';
-  readonly logoNav = 'https://www.figma.com/api/mcp/asset/20967614-fd03-42e3-8bf7-351c6042758d';
-  readonly otpLength = 4;
+    readonly bgImage = 'assets/images/bgImage.svg';
+    readonly logoCard = 'assets/images/logoCard.svg';
+    readonly logoNav = 'assets/images/logoNav.svg';
+    readonly otpLength = 4;
 
-  readonly createAccountForm = new FormGroup({});
-  readonly createAccountModel = {
-    fullName: '',
-    emailAddress: '',
-    mobileNumber: '',
-    rememberMe: false,
-  };
+    readonly createAccountForm = new FormGroup({});
+    readonly createAccountModel = {
+        fullName: '',
+        emailAddress: '',
+        mobileNumber: '',
+        rememberMe: false,
+    };
 
-  isOtpModalOpen = false;
-  isSuccessModalOpen = false;
+    isOtpModalOpen = false;
+    isSuccessModalOpen = false;
 
-  readonly createAccountFields: FormlyFieldConfig[] = formConfig as unknown as FormlyFieldConfig[];
+    readonly createAccountFields: FormlyFieldConfig[] = formConfig as unknown as FormlyFieldConfig[];
 
-  ngOnInit(): void {
-    this.setSeo();
-    this.translate.onLangChange.subscribe(() => this.setSeo());
-  }
-
-  onSubmit(): void {
-    if (!this.createAccountForm.valid) {
-      this.createAccountForm.markAllAsTouched();
-      return;
+    ngOnInit(): void {
+        this.setSeo();
+        this.translate.onLangChange.subscribe(() => this.setSeo());
     }
 
-    this.isOtpModalOpen = true;
-  }
+    onSubmit(): void {
+        if (!this.createAccountForm.valid) {
+            this.createAccountForm.markAllAsTouched();
+            return;
+        }
 
-  navigateToLogin(): void {
-    this.router.navigate(['../login'], { relativeTo: this.route });
-  }
-
-  closeOtpModal(): void {
-    this.isOtpModalOpen = false;
-  }
-
-  onOtpVerified(): void {
-    this.isOtpModalOpen = false;
-    this.isSuccessModalOpen = true;
-  }
-
-  onSuccessDone(): void {
-    this.isSuccessModalOpen = false;
-    this.router.navigate(['../home'], { relativeTo: this.route });
-  }
-
-  closeSuccessModal(): void {
-    this.isSuccessModalOpen = false;
-  }
-
-  get maskedMobileNumber(): string {
-    const digits = (this.createAccountModel.mobileNumber || '').replace(/\D/g, '');
-    if (!digits) {
-      return '+968 xxxxxxxx';
+        this.isOtpModalOpen = true;
     }
 
-    const visiblePart = digits.slice(-4);
-    const hiddenPart = 'x'.repeat(Math.max(digits.length - visiblePart.length, 0));
-    return `+968 ${hiddenPart}${visiblePart}`;
-  }
+    navigateToLogin(): void {
+        this.router.navigate(['../login'], { relativeTo: this.route });
+    }
 
-  private setSeo(): void {
-    this.seo.update({
-      title: this.translate.instant('createAccount.seo.title'),
-      description: this.translate.instant('createAccount.seo.description'),
-      keywords: this.translate.instant('createAccount.seo.keywords'),
-      url: this.translate.instant(environment.AppConfig.apiBaseUrl + 'createAccount.seo.url'),
-      author: this.translate.instant('createAccount.seo.author'),
-      type: 'website',
-    });
-  }
+    closeOtpModal(): void {
+        this.isOtpModalOpen = false;
+    }
+
+    onOtpVerified(): void {
+        this.isOtpModalOpen = false;
+        this.isSuccessModalOpen = true;
+    }
+
+    onSuccessDone(): void {
+        this.isSuccessModalOpen = false;
+        this.router.navigate(['../home'], { relativeTo: this.route });
+    }
+
+    closeSuccessModal(): void {
+        this.isSuccessModalOpen = false;
+    }
+
+    get maskedMobileNumber(): string {
+        const digits = (this.createAccountModel.mobileNumber || '').replace(/\D/g, '');
+        if (!digits) {
+            return '+968 xxxxxxxx';
+        }
+
+        const visiblePart = digits.slice(-4);
+        const hiddenPart = 'x'.repeat(Math.max(digits.length - visiblePart.length, 0));
+        return `+968 ${hiddenPart}${visiblePart}`;
+    }
+
+    private setSeo(): void {
+        this.seo.update({
+            title: this.translate.instant('createAccount.seo.title'),
+            description: this.translate.instant('createAccount.seo.description'),
+            keywords: this.translate.instant('createAccount.seo.keywords'),
+            url: this.translate.instant(environment.AppConfig.apiBaseUrl + 'createAccount.seo.url'),
+            author: this.translate.instant('createAccount.seo.author'),
+            type: 'website',
+        });
+    }
 }
