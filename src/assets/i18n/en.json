@@ -3,6 +3,13 @@
   "WELCOME": "Welcome to our application",
   "GOODBYE": "Goodbye",
   "numbersOnly": "Numbers only allowed",
+  "validation": {
+    "required": "This field is required",
+    "numbersOnly": "Numbers only allowed",
+    "emailPattern": "Please enter a valid email address",
+    "fullNamePattern": "Please enter a valid full name",
+    "mobileNumberLength": "Mobile number must be 8 digits"
+  },
   "home": {
     "seo": {
       "title": "Home Page | My Portal",
@@ -12,6 +19,85 @@
       "url": "https://myportal.com/home",
       "author": "MyPortal Team",
       "type": "website"
+    }
+  },
+  "login": {
+    "actions": {
+      "createAccount": "Create New Account"
+    },
+    "otp": {
+      "messagePrefix": "Please enter the verification code sent to your",
+      "mobileNumberLabel": "mobile number",
+      "verify": "Verify",
+      "close": "Close verification popup",
+      "digitLabel": "OTP digit"
+    }
+  },
+  "createAccount": {
+    "seo": {
+      "title": "Create Account | Marafiq",
+      "description": "Create your Marafiq account to access services and track requests.",
+      "keywords": "create account, marafiq, register",
+      "url": "https://myportal.com/create-account",
+      "author": "Marafiq Team",
+      "type": "website"
+    },
+    "hero": {
+      "title": "Easy Requests, Fast Processing",
+      "description": "Submit service requests, track their progress, and receive updates seamlessly without the need for in-person visits."
+    },
+    "form": {
+      "title": "Create New Account",
+      "rememberMe": "Remember me",
+      "alreadyHaveAccount": "Already have an account?",
+      "submit": "Create New Account"
+    },
+    "fields": {
+      "fullName": "Name",
+      "emailAddress": "Email Address",
+      "mobileNumber": "Mobile Number"
+    },
+    "otp": {
+      "title": "Verify Mobile Number"
+    },
+    "success": {
+      "title": "Profile created successfully",
+      "description": "You have successfully set up your profile. You can now view or update it at any time.",
+      "done": "Done",
+      "close": "Close success popup"
+    }
+  },
+  "footer": {
+    "brand": {
+      "logoAlt": "Marafiq"
+    },
+    "menu": {
+      "title": "OUR MENU",
+      "aboutUs": "About Us",
+      "services": "Services",
+      "complaints": "Complaints",
+      "mediaCenter": "Media Center",
+      "faq": "FAQ's"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "phone": "+968 22143933",
+      "email": "records@marafiq.om",
+      "address": "P.O Box 80, Postal Code 121 Muscat office (HQ), Muscat Grand Mall"
+    },
+    "social": {
+      "facebook": "Marafiq on Facebook",
+      "x": "Marafiq on X",
+      "linkedin": "Marafiq on LinkedIn"
+    },
+    "legal": {
+      "privacy": "Privacy & Policy",
+      "terms": "Terms of Use",
+      "accessibility": "Accessibility"
+    },
+    "bottom": {
+      "copyright": "\u00a9 Copyright {{year}} Marafiq, All right reserved.",
+      "legalNav": "Footer legal links"
     }
   },
   "primeng": {

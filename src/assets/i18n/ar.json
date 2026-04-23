@@ -3,6 +3,13 @@
     "WELCOME": "أهلا بك في تطبيقنا",
     "GOODBYE": "وداعا",
     "numbersOnly": "يسمح بالأرقام فقط",
+    "validation": {
+        "required": "هذا الحقل مطلوب",
+        "numbersOnly": "يسمح بالأرقام فقط",
+        "emailPattern": "يرجى إدخال بريد إلكتروني صحيح",
+        "fullNamePattern": "يرجى إدخال اسم صحيح",
+        "mobileNumberLength": "يجب أن يكون رقم الجوال 8 أرقام"
+    },
     "home": {
         "seo": {
             "title": "الصفحة الرئيسية | بوابتي",
@@ -12,6 +19,85 @@
             "url": "https://myportal.com/home",
             "author": "فريق MyPortal",
             "type": "website"
+        }
+    },
+    "login": {
+        "actions": {
+            "createAccount": "إنشاء حساب جديد"
+        },
+        "otp": {
+            "messagePrefix": "يرجى إدخال رمز التحقق المرسل إلى",
+            "mobileNumberLabel": "رقم الجوال",
+            "verify": "تحقق",
+            "close": "إغلاق نافذة التحقق",
+            "digitLabel": "رقم رمز التحقق"
+        }
+    },
+    "createAccount": {
+        "seo": {
+            "title": "إنشاء حساب | مرافق",
+            "description": "أنشئ حساب مرافق للوصول إلى الخدمات ومتابعة الطلبات.",
+            "keywords": "إنشاء حساب, مرافق, تسجيل",
+            "url": "https://myportal.com/create-account",
+            "author": "فريق مرافق",
+            "type": "website"
+        },
+        "hero": {
+            "title": "طلبات سهلة، معالجة سريعة",
+            "description": "قدّم طلبات الخدمات، وتتبع تقدمها، واستلم التحديثات بسهولة دون الحاجة إلى الزيارة الشخصية."
+        },
+        "form": {
+            "title": "إنشاء حساب جديد",
+            "rememberMe": "تذكرني",
+            "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+            "submit": "إنشاء حساب جديد"
+        },
+        "fields": {
+            "fullName": "الاسم",
+            "emailAddress": "البريد الإلكتروني",
+            "mobileNumber": "رقم الجوال"
+        },
+        "otp": {
+            "title": "التحقق من رقم الجوال"
+        },
+        "success": {
+            "title": "نجاح",
+            "description": "تم إنشاء الحساب بنجاح.",
+            "done": "تم",
+            "close": "إغلاق نافذة النجاح"
+        }
+    },
+    "footer": {
+        "brand": {
+            "logoAlt": "مرافق"
+        },
+        "menu": {
+            "title": "القائمة",
+            "aboutUs": "من نحن",
+            "services": "الخدمات",
+            "complaints": "الشكاوى",
+            "mediaCenter": "المركز الإعلامي",
+            "faq": "الأسئلة الشائعة"
+        },
+        "contact": {
+            "title": "معلومات التواصل",
+            "phone": "+968 22143933",
+            "email": "records@marafiq.om",
+            "address": "ص.ب 80، الرمز البريدي 121، مكتب مسقط (المقر الرئيسي)، مسقط جراند مول"
+        },
+        "social": {
+            "facebook": "مرافق على فيسبوك",
+            "x": "مرافق على X",
+            "linkedin": "مرافق على لينكدإن"
+        },
+        "legal": {
+            "privacy": "الخصوصية والسياسات",
+            "terms": "شروط الاستخدام",
+            "accessibility": "إمكانية الوصول"
+        },
+        "bottom": {
+            "copyright": "\u00a9 حقوق النشر {{year}} مرافق. جميع الحقوق محفوظة.",
+            "legalNav": "روابط قانونية في التذييل"
         }
     },
     "primeng": {
