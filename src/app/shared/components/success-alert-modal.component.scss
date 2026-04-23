@@ -1,0 +1,111 @@
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: rgba(0, 10, 24, 0.62);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(24px, 12vh, 164px) 24px 24px;
+}
+
+.success-modal {
+  width: min(640px, 92vw);
+  background: var(--color-modal-bg);
+  border-radius: 10px;
+  padding: 32px 80px;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19px;
+}
+
+.success-close {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-orange);
+  transition: opacity 0.15s ease;
+}
+
+.success-close:hover {
+  opacity: 0.65;
+}
+
+.success-close img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  object-fit: contain;
+}
+
+[dir='rtl'] .success-close {
+  left: auto;
+  right: 24px;
+}
+
+.success-icon {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+.success-title {
+  margin: 0;
+  font-family: 'AvantGarde Md BT', 'Century Gothic', 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 12px;
+  color: var(--color-teal);
+}
+
+.success-description {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', 'Century Gothic', 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-body-text);
+  max-width: auto;
+}
+
+.success-action-wrap {
+  width: 229px;
+}
+
+@media (max-width: 600px) {
+  .success-overlay {
+    padding: 16px;
+  }
+
+  .success-modal {
+    width: 100%;
+    max-width: 520px;
+    padding: 28px 20px;
+  }
+
+  .success-close {
+    top: 16px;
+    left: 16px;
+  }
+
+  [dir='rtl'] .success-close {
+    left: auto;
+    right: 16px;
+  }
+
+  .success-title {
+    font-size: 18px;
+  }
+}

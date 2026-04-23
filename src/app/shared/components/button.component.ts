@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
-type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'action-outline';
+type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'action-outline' | 'otp-verify';
 
 @Component({
   selector: 'app-button',
@@ -39,24 +39,24 @@ type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'act
     }
 
     .login-primary {
-      background: #e8a712;
-      color: #ffffff;
+      background: var(--color-orange);
+      color: var(--color-modal-bg);
       border-radius: 16px;
     }
 
     .login-primary:hover {
-      background: #cf9210;
+      background: var(--color-orange-hover);
     }
 
     .login-outline {
-      background: #ffffff;
-      border: 1px solid #e0e0e0;
-      color: #e8a712;
+      background: var(--color-modal-bg);
+      border: 1px solid var(--color-input-border);
+      color: var(--color-orange);
       border-radius: 16px;
     }
 
     .login-outline:hover {
-      background: #fafafa;
+      background: var(--color-surface-muted);
     }
 
     .action-primary,
@@ -64,7 +64,7 @@ type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'act
       width: 154px;
       height: 45px;
       border-radius: 20px;
-      box-shadow: 0px 0px 15.2px 6px rgba(232, 167, 18, 0.14);
+      box-shadow: 0 0 15.2px 6px var(--color-orange-soft-shadow);
       font-family: 'Poppins', 'AvantGarde Bk BT', sans-serif;
       font-weight: 500;
       line-height: 30px;
@@ -72,14 +72,27 @@ type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'act
     }
 
     .action-primary {
-      background: #e8a712;
-      color: #ffffff;
+      background: var(--color-orange);
+      color: var(--color-modal-bg);
     }
 
     .action-outline {
-      background: #ffffff;
-      border: 1px solid #e8a712;
-      color: #e8a712;
+      background: var(--color-modal-bg);
+      border: 1px solid var(--color-orange);
+      color: var(--color-orange);
+    }
+
+    .otp-verify {
+      min-height: 40px;
+      border-radius: 16px;
+      background: var(--color-orange);
+      color: var(--color-modal-bg);
+      padding: 9px 16px;
+      line-height: 22px;
+    }
+
+    .otp-verify:hover {
+      background: var(--color-orange-hover);
     }
   `],
 })

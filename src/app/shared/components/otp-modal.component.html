@@ -1,0 +1,57 @@
+<div class="otp-overlay" *ngIf="isOpen">
+  <div class="otp-modal" role="dialog" aria-modal="true" aria-labelledby="otp-title">
+    <button
+      class="otp-close"
+      type="button"
+      (click)="onClose()"
+      [attr.aria-label]="'login.otp.close' | translate">
+      <img [src]="closeIconSrc" alt="" aria-hidden="true">
+    </button>
+
+    <div class="otp-body">
+      <div class="otp-verification-container">
+        <div class="otp-verification-content">
+          <img class="otp-illustration" [src]="otpIllustrationSrc" alt="" aria-hidden="true">
+
+          <div class="otp-text-container">
+            <div class="otp-text-wrapper">
+              <p class="otp-description" id="otp-title">
+                {{ 'login.otp.messagePrefix' | translate }}
+                <span>{{ 'login.otp.mobileNumberLabel' | translate }}</span>
+              </p>
+              <p class="otp-number">{{ maskedMobileNumber }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="otp-code-container">
+          <div class="otp-inputs" (paste)="onOtpPaste($event)">
+            <input
+              #otpInput
+              *ngFor="let digit of otpDigits; index as i; trackBy: trackByOtpIndex"
+              class="otp-input"
+              type="text"
+              inputmode="numeric"
+              [attr.autocomplete]="i === 0 ? 'one-time-code' : 'off'"
+              maxlength="1"
+              [value]="digit"
+              [attr.aria-label]="('login.otp.digitLabel' | translate) + ' ' + (i + 1)"
+              (input)="onOtpInput($event, i)"
+              (keydown)="onOtpKeydown($event, i)">
+          </div>
+
+          <div class="otp-verify-wrap">
+            <app-button
+              type="button"
+              variant="otp-verify"
+              [fullWidth]="true"
+              [disabled]="!isOtpComplete"
+              (clicked)="onVerify()">
+              {{ 'login.otp.verify' | translate }}
+            </app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

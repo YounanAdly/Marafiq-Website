@@ -1,0 +1,26 @@
+<div class="success-overlay" *ngIf="isOpen">
+  <div class="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <button
+      class="success-close"
+      type="button"
+      (click)="onClose()"
+      [attr.aria-label]="'createAccount.success.close' | translate">
+      <img [src]="closeIconSrc" alt="" aria-hidden="true">
+    </button>
+
+    <img class="success-icon" [src]="iconSrc" alt="" aria-hidden="true">
+
+    <h2 class="success-title" id="success-title">{{ titleKey | translate }}</h2>
+    <p class="success-description">{{ descriptionKey | translate }}</p>
+
+    <div class="success-action-wrap">
+      <app-button
+        type="button"
+        variant="otp-verify"
+        [fullWidth]="true"
+        (clicked)="onDone()">
+        {{ doneLabelKey | translate }}
+      </app-button>
+    </div>
+  </div>
+</div>
