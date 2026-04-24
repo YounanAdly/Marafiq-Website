@@ -1,23 +1,77 @@
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
 import { LanguageService } from '../../shared/services/language.service';
 import { SeoService } from '../../shared/services/seo.service';
+import { ServiceOfferingCardComponent } from '../../shared/components/service-offering-card/service-offering-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [CommonModule, TranslateModule, ServiceOfferingCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   public currentLang = 'en';
   public languageService = inject(LanguageService);
   private seo = inject(SeoService);
   private translate = inject(TranslateService);
+  private router = inject(Router);
 
-  ngOnInit() {
+  // ── Services carousel state ──────────────────────────────────────────────
+  atStart = true;
+  atEnd = false;
+  private readonly CARD_SCROLL = 288; // 268px card + 20px gap
+
+  @ViewChild('servicesTrack') private servicesTrackRef!: ElementRef<HTMLElement>;
+
+  readonly serviceItems = [
+    {
+      titleKey: 'home.services.cards.connection.title',
+      descriptionKey: 'home.services.cards.connection.description',
+      imageSrc: 'assets/images/water.svg',
+      imageAltKey: 'home.services.cards.connection.imageAlt',
+    },
+    {
+      titleKey: 'home.services.cards.tanker.title',
+      descriptionKey: 'home.services.cards.tanker.description',
+      imageSrc: 'assets/images/bgImage.svg',
+      imageAltKey: 'home.services.cards.tanker.imageAlt',
+    },
+    {
+      titleKey: 'home.services.cards.meter.title',
+      descriptionKey: 'home.services.cards.meter.description',
+      imageSrc: 'assets/images/logoCard.svg',
+      imageAltKey: 'home.services.cards.meter.imageAlt',
+    },
+    {
+      titleKey: 'home.services.cards.disconnection.title',
+      descriptionKey: 'home.services.cards.disconnection.description',
+      imageSrc: 'assets/images/bgHome.svg',
+      imageAltKey: 'home.services.cards.disconnection.imageAlt',
+    },
+     {
+      titleKey: 'home.services.cards.tanker.title',
+      descriptionKey: 'home.services.cards.tanker.description',
+      imageSrc: 'assets/images/bgImage.svg',
+      imageAltKey: 'home.services.cards.tanker.imageAlt',
+    }, {
+      titleKey: 'home.services.cards.tanker.title',
+      descriptionKey: 'home.services.cards.tanker.description',
+      imageSrc: 'assets/images/bgImage.svg',
+      imageAltKey: 'home.services.cards.tanker.imageAlt',
+    }, {
+      titleKey: 'home.services.cards.tanker.title',
+      descriptionKey: 'home.services.cards.tanker.description',
+      imageSrc: 'assets/images/bgImage.svg',
+      imageAltKey: 'home.services.cards.tanker.imageAlt',
+    },
+  ];
+
+  ngOnInit(): void {
     this.currentLang = this.languageService.getCurrentLanguage() || 'en';
     this.setSeo();
     this.translate.onLangChange.subscribe(event => {
@@ -26,10 +80,47 @@ export class HomeComponent {
     });
   }
 
-  toggleLanguage() {
+  ngAfterViewInit(): void {
+    const track = this.servicesTrackRef?.nativeElement;
+    if (track) {
+      this.updateScrollState(track);
+    }
+  }
+
+  // ── Carousel helpers ─────────────────────────────────────────────────────
+  scrollServicesPrev(): void {
+    const track = this.servicesTrackRef?.nativeElement;
+    if (!track) return;
+    track.scrollBy({ left: -this.CARD_SCROLL, behavior: 'smooth' });
+  }
+
+  scrollServicesNext(): void {
+    const track = this.servicesTrackRef?.nativeElement;
+    if (!track) return;
+    track.scrollBy({ left: this.CARD_SCROLL, behavior: 'smooth' });
+  }
+
+  onServicesScroll(track: HTMLElement): void {
+    this.updateScrollState(track);
+  }
+
+  private updateScrollState(track: HTMLElement): void {
+    this.atStart = track.scrollLeft <= 1;
+    this.atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  }
+
+  toggleLanguage(): void {
     const lang = this.currentLang === 'en' ? 'ar' : 'en';
     this.languageService.changeLanguage(lang);
     this.currentLang = lang;
+  }
+
+  onViewMoreServices(): void {
+    void this.router.navigate(['/', this.currentLang, 'contact-us']);
+  }
+
+  onServiceApply(): void {
+    void this.router.navigate(['/', this.currentLang, 'create-account']);
   }
 
   private setSeo() {

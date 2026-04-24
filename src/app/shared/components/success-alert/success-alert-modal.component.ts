@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { ButtonComponent } from './button.component';
+import { ButtonComponent } from '../button.component';
 
 @Component({
   selector: 'app-success-alert-modal',

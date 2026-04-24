@@ -5,7 +5,7 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonComponent } from '../../shared/components/button.component';
-import { OtpModalComponent } from '../../shared/components/otp-modal.component';
+import { OtpModalComponent } from '../../shared/components/otp-model/otp-modal.component';
 import formConfig from './form.json';
 
 @Component({

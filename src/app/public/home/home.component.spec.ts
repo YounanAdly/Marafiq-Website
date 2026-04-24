@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 import { LanguageService } from '../../shared/services/language.service';
 import { ThemeService } from '../../shared/services/theme.service';
 import { FontSizeService } from '../../shared/services/font-size.service';
@@ -17,6 +18,7 @@ describe('HomeComponent', () => {
       imports: [HomeComponent],
       providers: [
         provideHttpClient(),
+        provideRouter([]),
         ...provideTranslations(),
         {
           provide: LanguageService,

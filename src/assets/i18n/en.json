@@ -65,6 +65,39 @@
         }
       }
     },
+    "services": {
+      "kicker": "services",
+      "title": "Powering Your Needs",
+      "description": "Explore our range of utility services designed to ensure reliable, efficient, and compliant solutions for every need.",
+      "viewMore": "View More",
+      "applyNow": "Apply Now",
+      "nav": {
+        "prev": "Previous services",
+        "next": "Next services"
+      },
+      "cards": {
+        "connection": {
+          "title": "Water Service Connection Request",
+          "description": "Request a new water connection for residential, commercial, or industrial properties.",
+          "imageAlt": "Water service connection"
+        },
+        "tanker": {
+          "title": "Tanker Filling License Request",
+          "description": "Apply for a license to operate and fill water tankers at approved facilities.",
+          "imageAlt": "Tanker filling"
+        },
+        "meter": {
+          "title": "Additional Water Meter",
+          "description": "Request additional utility meters based on increased demand or site requirements.",
+          "imageAlt": "Additional meter"
+        },
+        "disconnection": {
+          "title": "Permanent Water Disconnection",
+          "description": "Apply for permanent utility disconnection for completed developments with stable long-term planning.",
+          "imageAlt": "Permanent disconnection"
+        }
+      }
+    },
     "page": {
       "title": "Home Page",
       "subtitle": "Empty starter page with language, theme, and font-size controls.",

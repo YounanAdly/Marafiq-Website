@@ -48,6 +48,7 @@ When implementing a new Figma design, always read this file first and reuse exis
 | Variable | Value (light) | Figma token |
 |---|---|---|
 | `--color-teal` | `#008c98` | Primary/blue |
+| `--color-primary-blue` | `#0076bf` | Primary/Blue (section kicker) |
 | `--color-teal-dark` | `#00788b` | Secondary/Dark Green |
 | `--color-orange` | `#e8a712` | Primary/Orange |
 | `--color-dark-blue` | `#083a81` | Secondary/Dark Blue |
@@ -63,6 +64,7 @@ When implementing a new Figma design, always read this file first and reuse exis
 | `--color-overlay-start` | `rgba(0, 26, 63, 0)` | Auth hero overlay start |
 | `--color-overlay-mid` | `rgba(0, 120, 139, 0.536)` | Auth hero overlay mid |
 | `--color-overlay-end` | `rgba(0, 26, 63, 0.8)` | Auth hero overlay end |
+| `--color-section-soft-bg` | `#ebf6f7` | Soft section background |
 
 > **Rule**: Never hardcode these hex values in component SCSS. Always reference via `var(--color-*)`.  
 > `--color-modal-bg` and `--color-modal-input-bg` are intentionally `#ffffff` in all themes because the modal card is always rendered as a white surface (dark-theme only darkens the page background behind it).
@@ -99,16 +101,23 @@ When implementing a new Figma design, always read this file first and reuse exis
 4. Reusable Button
     - File: `src/app/shared/components/button.component.ts`
     - Selector: `app-button`
-    - Variants: `login-primary`, `login-outline`, `action-primary`, `action-outline`, `otp-verify`.
+    - Variants: `login-primary`, `login-outline`, `action-primary`, `action-outline`, `otp-verify`, `service-apply`.
     - Use `fullWidth: true` for full-width login actions.
     - Use `otp-verify` for compact OTP/verification modal primary actions.
-5. OTP Modal
-    - File: `src/app/shared/components/otp-modal.component.ts`
+    - Use `service-apply` for compact CTA buttons inside service offering cards (`226x35`, radius `20`).
+5. Service Offering Card
+    - File: `src/app/shared/components/service-offering-card/service-offering-card.component.ts`
+    - Selector: `app-service-offering-card`
+    - Reuse for Home/services-style cards with image-top + gradient-content + CTA layout.
+    - Reusable inputs: `titleKey`, `descriptionKey`, `imageSrc`, `imageAltKey`, `actionLabelKey`.
+    - Reusable output: `apply`.
+6. OTP Modal
+    - File: `src/app/shared/components/otp-model/otp-modal.component.ts`
     - Selector: `app-otp-modal`
     - Reuse for OTP verification popups on auth flows (`login`, `create-account`) instead of page-level duplicated OTP markup/logic.
     - Emits `verified` and `closed` outputs; accepts `maskedMobileNumber` and configurable `otpLength`.
-6. Success Alert Modal
-    - File: `src/app/shared/components/success-alert-modal.component.ts`
+7. Success Alert Modal
+    - File: `src/app/shared/components/success-alert/success-alert-modal.component.ts`
     - Selector: `app-success-alert-modal`
     - Reuse for post-action confirmation popups (for example: account-created confirmation with Done CTA).
 

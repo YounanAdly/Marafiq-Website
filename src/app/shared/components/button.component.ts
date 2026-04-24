@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
-type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'action-outline' | 'otp-verify';
+type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'action-outline' | 'otp-verify' | 'service-apply';
 
 @Component({
   selector: 'app-button',
@@ -92,6 +92,23 @@ type ButtonVariant = 'login-primary' | 'login-outline' | 'action-primary' | 'act
     }
 
     .otp-verify:hover {
+      background: var(--color-orange-hover);
+    }
+
+    .service-apply {
+      width: 100%;
+      min-height: 35px;
+      border-radius: 20px;
+      background: var(--color-orange);
+      color: var(--color-modal-bg);
+      font-family: 'Poppins', 'AvantGarde Bk BT', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 30px;
+      padding: 0 12px;
+    }
+
+    .service-apply:hover {
       background: var(--color-orange-hover);
     }
   `],

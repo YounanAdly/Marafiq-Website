@@ -376,6 +376,163 @@
   color: var(--color-modal-bg);
 }
 
+.services-section {
+  padding: 63px 0;
+  background: var(--color-section-soft-bg);
+}
+
+.services-wrap {
+  width: min(1312px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+// ── Section header ─────────────────────────────────────────────────────────
+// Title is center-aligned; View More is absolutely anchored to the inline-end
+// so RTL gets it on the left automatically (inset-inline-end).
+.services-head {
+  position: relative;
+}
+
+.services-title-block {
+  text-align: center;
+}
+
+.services-kicker {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--color-primary-blue);
+  text-transform: lowercase;
+}
+
+.services-title {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 50px;
+  color: var(--color-light-green);
+}
+
+.services-description {
+  margin: 0;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-body-text);
+}
+
+// Figma: w=98 h=35 cornerRadius=16, positioned at x=1214 y=41 within 1312px content
+// → absolutely anchored at top:41px, inset-inline-end:0
+.services-more-btn {
+  position: absolute;
+  inset-block-start: 41px;
+  inset-inline-end: 0;
+  border: 0;
+  width: 98px;
+  height: 35px;
+  border-radius: 16px;
+  background: var(--color-orange);
+  padding: 0 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-modal-bg);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--color-orange-hover);
+  }
+}
+
+// ── Carousel ────────────────────────────────────────────────────────────────
+// Figma: arrows (66×66 touch target) flank a 1132px wide card track.
+// x=90 for the track start means 90px total arrow zone on each side.
+.services-carousel {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: 66px 1fr 66px;
+  align-items: center;
+  gap: 12px;
+}
+
+// Scrollable track — overflow hidden so JS scroll controls it exclusively.
+.services-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// ── Arrow button ─────────────────────────────────────────────────────────────
+// Touch target: 66×66, transparent.
+// Figma visual: "Spread" squircle 46.67×46.67 radius-13 in orange, white chevron.
+.services-arrow {
+  flex-shrink: 0;
+  width: 66px;
+  height: 66px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.services-arrow__face {
+  width: 46.67px;
+  height: 46.67px;
+  border-radius: 13px;
+  background: var(--color-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+}
+
+.services-arrow:hover:not(.services-arrow--dimmed) .services-arrow__face {
+  background: var(--color-orange-hover);
+}
+
+// Dimmed state: visually faded, non-interactive
+.services-arrow--dimmed {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+// RTL: swap chevron directions
+html[dir='rtl'] .services-arrow-prev .services-arrow__face svg {
+  transform: scaleX(-1);
+}
+
+html[dir='rtl'] .services-arrow-next .services-arrow__face svg {
+  transform: scaleX(-1);
+}
+
+
 @media (max-width: 992px) {
   .home-hero {
     min-height: 720px;
@@ -496,5 +653,59 @@
     margin-top: 24px;
     font-size: 16px;
     line-height: 28px;
+  }
+
+  .services-section {
+    padding: 44px 0 64px;
+  }
+
+  .services-wrap {
+    width: calc(100% - 24px);
+  }
+
+  .services-title-block {
+    text-align: start;
+  }
+
+  .services-kicker {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .services-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .services-description {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .services-more-btn {
+    position: static;
+    display: none; // hidden on mobile; use full "view more" link instead
+  }
+
+  .services-carousel {
+    margin-top: 20px;
+    grid-template-columns: 44px 1fr 44px;
+    gap: 8px;
+  }
+
+  .services-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .services-arrow__face {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .services-track {
+    gap: 12px;
   }
 }

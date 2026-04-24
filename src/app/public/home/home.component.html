@@ -93,3 +93,71 @@
     </div>
   </div>
 </section>
+
+<section class="services-section">
+  <div class="services-wrap">
+
+    <div class="services-head">
+      <div class="services-title-block">
+        <p class="services-kicker">{{ 'home.services.kicker' | translate }}</p>
+        <h2 class="services-title">{{ 'home.services.title' | translate }}</h2>
+        <p class="services-description">{{ 'home.services.description' | translate }}</p>
+      </div>
+
+      <button
+        type="button"
+        class="services-more-btn"
+        (click)="onViewMoreServices()"
+        [attr.aria-label]="'home.services.viewMore' | translate">
+        {{ 'home.services.viewMore' | translate }}
+      </button>
+    </div>
+
+    <div class="services-carousel">
+
+      <button
+        type="button"
+        class="services-arrow services-arrow-prev"
+        [class.services-arrow--dimmed]="atStart"
+        [attr.aria-disabled]="atStart ? 'true' : 'false'"
+        [attr.aria-label]="'home.services.nav.prev' | translate"
+        (click)="scrollServicesPrev()">
+        <span class="services-arrow__face" aria-hidden="true">
+          <svg width="6" height="13" viewBox="0 0 6 13" fill="none">
+            <path d="M5 1.5L1 6.5L5 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div
+        class="services-track"
+        #servicesTrack
+        (scroll)="onServicesScroll(servicesTrack)">
+        <app-service-offering-card
+          *ngFor="let service of serviceItems"
+          [titleKey]="service.titleKey"
+          [descriptionKey]="service.descriptionKey"
+          [imageSrc]="service.imageSrc"
+          [imageAltKey]="service.imageAltKey"
+          (apply)="onServiceApply()">
+        </app-service-offering-card>
+      </div>
+
+      <button
+        type="button"
+        class="services-arrow services-arrow-next"
+        [class.services-arrow--dimmed]="atEnd"
+        [attr.aria-disabled]="atEnd ? 'true' : 'false'"
+        [attr.aria-label]="'home.services.nav.next' | translate"
+        (click)="scrollServicesNext()">
+        <span class="services-arrow__face" aria-hidden="true">
+          <svg width="6" height="13" viewBox="0 0 6 13" fill="none">
+            <path d="M1 1.5L5 6.5L1 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</section>
+

@@ -6,8 +6,8 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
 import { ButtonComponent } from '../../shared/components/button.component';
-import { OtpModalComponent } from '../../shared/components/otp-modal.component';
-import { SuccessAlertModalComponent } from '../../shared/components/success-alert-modal.component';
+import { OtpModalComponent } from '../../shared/components/otp-model/otp-modal.component';
+import { SuccessAlertModalComponent } from '../../shared/components/success-alert/success-alert-modal.component';
 import { SeoService } from '../../shared/services/seo.service';
 import formConfig from './form.json';
 
