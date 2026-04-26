@@ -7,16 +7,10 @@
     <h3>{{ titleKey | translate }}</h3>
     <p>{{ descriptionKey | translate }}</p>
 
-    <button
-      type="button"
-      class="card-cta"
-      (click)="onApply()"
-      [attr.aria-label]="actionLabelKey | translate">
+    <button type="button" class="card-cta" (click)="onApply()" [attr.aria-label]="actionLabelKey | translate">
       <span class="card-cta__label">{{ actionLabelKey | translate }}</span>
       <span class="card-cta__icon" aria-hidden="true">
-        <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
-          <path d="M1 4H12.5M9.5 1L12.5 4L9.5 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img width="14" height="9" src="assets/images/arrow-right.svg" alt="" aria-hidden="true" />
       </span>
     </button>
   </div>

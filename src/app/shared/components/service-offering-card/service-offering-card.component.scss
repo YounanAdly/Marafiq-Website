@@ -4,16 +4,45 @@
 }
 
 .service-card {
+  position: relative;
   width: 268px;
-  min-height: 364px;
+  height: 364px;
   border-radius: 16px;
   overflow: hidden;
   background: var(--color-dark-blue);
+
+  // Layered tint to match the Figma card where the image remains visible behind text.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      var(--color-overlay-start) 22%,
+      var(--color-overlay-mid) 62%,
+      var(--color-dark-blue) 100%
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 114px;
+    height: 88px;
+    z-index: 1;
+    background: var(--color-overlay-mid);
+    filter: blur(16px);
+    opacity: 0.55;
+  }
 }
 
 .service-card__media {
-  height: 151px;
-  width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 
   img {
     width: 100%;
@@ -24,9 +53,14 @@
 }
 
 .service-card__content {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
   min-height: 213px;
-  padding: 22px 9px 19px;
-  background: linear-gradient(180deg, var(--color-teal-dark) 0%, var(--color-dark-blue) 100%);
+  padding: 19px 9px;
+  display: flex;
+  flex-direction: column;
 
   h3 {
     margin: 0;
@@ -43,11 +77,11 @@
     margin: 0;
     padding: 10px;
     min-height: 67px;
-    font-family: 'AvantGarde Bk BT', sans-serif;
+    font-family: 'Poppins', 'AvantGarde Bk BT', sans-serif;
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    color: var(--color-white-80);
+    color: var(--color-modal-bg);
   }
 
   // Figma: Apply Now CTA — w=226 h=35 radius=20, orange, Poppins 16/500
@@ -86,7 +120,7 @@
     align-items: center;
     flex-shrink: 0;
 
-    svg {
+    img {
       display: block;
     }
   }

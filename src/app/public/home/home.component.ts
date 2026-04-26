@@ -32,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
     {
       titleKey: 'home.services.cards.connection.title',
       descriptionKey: 'home.services.cards.connection.description',
-      imageSrc: 'assets/images/water.svg',
+      imageSrc: 'assets/images/bgImage.svg',
       imageAltKey: 'home.services.cards.connection.imageAlt',
     },
     {
@@ -44,13 +44,13 @@ export class HomeComponent implements AfterViewInit {
     {
       titleKey: 'home.services.cards.meter.title',
       descriptionKey: 'home.services.cards.meter.description',
-      imageSrc: 'assets/images/logoCard.svg',
+      imageSrc: 'assets/images/bgImage.svg',
       imageAltKey: 'home.services.cards.meter.imageAlt',
     },
     {
       titleKey: 'home.services.cards.disconnection.title',
       descriptionKey: 'home.services.cards.disconnection.description',
-      imageSrc: 'assets/images/bgHome.svg',
+      imageSrc: 'assets/images/bgImage.svg',
       imageAltKey: 'home.services.cards.disconnection.imageAlt',
     },
      {

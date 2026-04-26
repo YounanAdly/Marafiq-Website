@@ -496,24 +496,21 @@
   transition: opacity 0.2s ease;
 }
 
-.services-arrow__face {
-  width: 46.67px;
-  height: 46.67px;
-  border-radius: 13px;
-  background: var(--color-orange);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
-
-  svg {
-    display: block;
-    flex-shrink: 0;
-  }
+.services-arrow__img {
+  width: 66px;
+  height: 66px;
+  display: block;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
 }
 
-.services-arrow:hover:not(.services-arrow--dimmed) .services-arrow__face {
-  background: var(--color-orange-hover);
+// Prev arrow points left — mirror the right-facing asset
+.services-arrow-prev .services-arrow__img {
+  transform: scaleX(-1);
+}
+
+.services-arrow:hover:not(.services-arrow--dimmed) .services-arrow__img {
+  opacity: 0.85;
 }
 
 // Dimmed state: visually faded, non-interactive
@@ -523,12 +520,12 @@
   pointer-events: none;
 }
 
-// RTL: swap chevron directions
-html[dir='rtl'] .services-arrow-prev .services-arrow__face svg {
-  transform: scaleX(-1);
+// RTL: swap directions
+html[dir='rtl'] .services-arrow-prev .services-arrow__img {
+  transform: scaleX(1);
 }
 
-html[dir='rtl'] .services-arrow-next .services-arrow__face svg {
+html[dir='rtl'] .services-arrow-next .services-arrow__img {
   transform: scaleX(-1);
 }
 

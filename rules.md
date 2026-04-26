@@ -108,7 +108,7 @@ When implementing a new Figma design, always read this file first and reuse exis
 5. Service Offering Card
     - File: `src/app/shared/components/service-offering-card/service-offering-card.component.ts`
     - Selector: `app-service-offering-card`
-    - Reuse for Home/services-style cards with image-top + gradient-content + CTA layout.
+    - Reuse for Home/services-style cards with full-bleed background image, bottom translucent gradient/blur text overlay, and CTA layout.
     - Reusable inputs: `titleKey`, `descriptionKey`, `imageSrc`, `imageAltKey`, `actionLabelKey`.
     - Reusable output: `apply`.
 6. OTP Modal
