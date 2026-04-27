@@ -73,16 +73,16 @@
     min-height: 62px;
   }
 
-  p {
-    margin: 0;
-    padding: 10px;
-    min-height: 67px;
-    font-family: 'Poppins', 'AvantGarde Bk BT', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: var(--color-modal-bg);
-  }
+    p {
+      margin: 0;
+      padding: 10px;
+      min-height: 67px;
+      font-family: 'AvantGarde Bk BT', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: var(--color-modal-bg);
+    }
 
   // Figma: Apply Now CTA — w=226 h=35 radius=20, orange, Poppins 16/500
   // Text at x=59 within 226px + right-pointing arrow at x=147
@@ -107,7 +107,7 @@
   }
 
   .card-cta__label {
-    font-family: 'Poppins', 'AvantGarde Bk BT', sans-serif;
+      font-family: 'AvantGarde Bk BT', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 30px;

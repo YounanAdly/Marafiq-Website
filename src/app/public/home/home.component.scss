@@ -145,7 +145,7 @@
   border-radius: 50%;
   background: #ff0000;
   color: var(--color-modal-bg);
-  font-family: 'Inter', sans-serif;
+  font-family: 'AvantGarde Bk BT', sans-serif;
   font-size: 6px;
   line-height: 10px;
   text-align: center;
@@ -157,7 +157,7 @@
   justify-content: space-between;
   gap: 5px;
   color: var(--color-modal-bg);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'AvantGarde Bk BT', sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -228,7 +228,7 @@
 }
 
 .who-wrap {
-  width: min(1412px, calc(100% - 36px));
+  width: min(1312px, calc(100% - 36px));
   margin: 0 auto;
 }
 
@@ -284,7 +284,7 @@
 .who-cards {
   margin-top: 26px;
   display: grid;
-  grid-template-columns: 746px 313px 313px;
+  grid-template-columns: 646px 313px 313px;
   gap: 20px;
 }
 
@@ -298,7 +298,7 @@
 
 .who-card h3 {
   margin: 0;
-  font-family: 'AvantGarde Bk BT', sans-serif;
+  font-family: 'AvantGarde Md BT', sans-serif;
   text-transform: uppercase;
 }
 
@@ -313,7 +313,7 @@
 }
 
 .who-card-main h3 {
-  max-width: 557px;
+  max-width: 557px min(760px, calc(100% - 180px));
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
@@ -322,10 +322,10 @@
 
 .who-card-main p {
   margin-top: 22px;
-  max-width: 590px;
+  max-width: min(860px, calc(100% - 100px));
   font-size: 16px;
   font-weight: 400;
-  line-height: 31px;
+  line-height: 1.4;
   color: var(--color-body-text);
 }
 
@@ -363,16 +363,16 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
-  color: #d6e9ee;
+  color: var(--color-modal-bg);
 }
 
 .who-card-side p {
   position: relative;
   z-index: 1;
-  margin-top: 62px;
+  margin-top: 50px;
   font-size: 16px;
   font-weight: 400;
-  line-height: 29px;
+  line-height: 1.45;
   color: var(--color-modal-bg);
 }
 
@@ -588,7 +588,7 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .inquiry-title {
   margin: 0;
-  max-width: 300px;
+  max-width: 260px;
   font-family: 'AvantGarde Bk BT', sans-serif;
   font-size: 42px;
   font-weight: 700;
@@ -600,7 +600,7 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 .inquiry-description {
   margin: 22px 0 0;
   max-width: 588px;
-  font-family: 'AvantGarde Md BT', sans-serif;
+  font-family: 'AvantGarde Bk BT', sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.45;
