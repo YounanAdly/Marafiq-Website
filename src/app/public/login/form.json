@@ -17,7 +17,7 @@
           "autocomplete": "tel",
           "maxLength": 8,
           "pattern": "^\\d+$",
-          "prefixIconSrc": "https://www.figma.com/api/mcp/asset/a86a3276-ed46-4624-b770-d2255519eec2",
+          "prefixIconSrc": "assets/images/create-account-phone-icon.png",
           "containerClass": "input-label",
           "inputClass": "field-input",
           "iconClass": "field-icon"

@@ -153,3 +153,60 @@
   </div>
 </section>
 
+<section class="support-complaints-section">
+  <div class="support-complaints-wrap">
+    <article class="inquiry-card" [attr.aria-label]="'home.supportInquiry.title' | translate">
+      <img
+        class="inquiry-group-art"
+        src="assets/images/home-inquiry-group.svg"
+        alt=""
+        aria-hidden="true" />
+      <img
+        class="inquiry-group-art-2"
+        src="assets/images/home-inquiry-group.svg"
+        alt=""
+        aria-hidden="true" />
+
+      <div class="inquiry-content">
+        <h2 class="inquiry-title">{{ 'home.supportInquiry.title' | translate }}</h2>
+        <p class="inquiry-description">{{ 'home.supportInquiry.description' | translate }}</p>
+
+        <button
+          type="button"
+          class="inquiry-btn"
+          (click)="onSendInquiry()"
+          [attr.aria-label]="'home.supportInquiry.cta' | translate">
+          {{ 'home.supportInquiry.cta' | translate }}
+        </button>
+      </div>
+    </article>
+
+    <section class="complaints-panel" [attr.aria-label]="'home.complaints.title' | translate">
+      <div class="complaints-head">
+        <p class="complaints-kicker">{{ 'home.complaints.kicker' | translate }}</p>
+        <h2 class="complaints-title">{{ 'home.complaints.title' | translate }}</h2>
+        <p class="complaints-description">{{ 'home.complaints.description' | translate }}</p>
+      </div>
+
+      <div class="complaints-grid">
+        <article class="complaint-card" *ngFor="let item of complaintItems" [ngClass]="item.surfaceClass">
+          <img class="complaint-icon" [src]="item.imageSrc" [attr.alt]="item.imageAltKey | translate" />
+          <h3 class="complaint-title">{{ item.titleKey | translate }}</h3>
+          <p class="complaint-description">{{ item.descriptionKey | translate }}</p>
+
+          <button
+            type="button"
+            class="complaint-btn"
+            (click)="onSubmitComplaint()"
+            [attr.aria-label]="'home.complaints.submit' | translate">
+            <span>{{ 'home.complaints.submit' | translate }}</span>
+            <span class="complaint-btn-arrow" aria-hidden="true"></span>
+          </button>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>
+
+<app-media-center-section></app-media-center-section>
+

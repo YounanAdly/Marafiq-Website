@@ -64,6 +64,11 @@ When implementing a new Figma design, always read this file first and reuse exis
 | `--color-overlay-start` | `rgba(0, 26, 63, 0)` | Auth hero overlay start |
 | `--color-overlay-mid` | `rgba(0, 120, 139, 0.536)` | Auth hero overlay mid |
 | `--color-overlay-end` | `rgba(0, 26, 63, 0.8)` | Auth hero overlay end |
+| `--color-inquiry-surface-start` | `#15a0ec` | Home inquiry card gradient start |
+| `--color-inquiry-surface-end` | `#0084d4` | Home inquiry card gradient end |
+| `--color-inquiry-glow` | `rgba(213, 237, 242, 0.78)` | Home inquiry card top glow |
+| `--color-complaint-card-warm` | `#fff1dd` | Home complaints warm card background |
+| `--color-complaint-card-sky` | `#b5efff` | Home complaints sky card background |
 | `--color-section-soft-bg` | `#ebf6f7` | Soft section background |
 
 > **Rule**: Never hardcode these hex values in component SCSS. Always reference via `var(--color-*)`.  
@@ -120,6 +125,11 @@ When implementing a new Figma design, always read this file first and reuse exis
     - File: `src/app/shared/components/success-alert/success-alert-modal.component.ts`
     - Selector: `app-success-alert-modal`
     - Reuse for post-action confirmation popups (for example: account-created confirmation with Done CTA).
+8. Media Center Section
+    - File: `src/app/shared/components/media-center-section/media-center-section.component.ts`
+    - Selector: `app-media-center-section`
+    - Reuse for media/news gallery blocks with featured video preview modal and responsive card layout.
+    - Reusable outputs/behaviors: click-to-open full-screen video preview, language-aware "View More" navigation.
 
 ### Reusable Formly Field Types (Registered)
 Source of truth: `src/app/shared/formly/formly-config.module.ts`

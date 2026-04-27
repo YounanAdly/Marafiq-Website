@@ -6,11 +6,12 @@ import { environment } from '../../../environments/environment';
 import { LanguageService } from '../../shared/services/language.service';
 import { SeoService } from '../../shared/services/seo.service';
 import { ServiceOfferingCardComponent } from '../../shared/components/service-offering-card/service-offering-card.component';
+import { MediaCenterSectionComponent } from '../../shared/components/media-center-section/media-center-section.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ServiceOfferingCardComponent],
+  imports: [CommonModule, TranslateModule, ServiceOfferingCardComponent, MediaCenterSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -71,6 +72,37 @@ export class HomeComponent implements AfterViewInit {
     },
   ];
 
+  readonly complaintItems = [
+    {
+      titleKey: 'home.complaints.cards.waterLeakage.title',
+      descriptionKey: 'home.complaints.cards.waterLeakage.description',
+      imageSrc: 'assets/images/complaint-water-leakage.png',
+      imageAltKey: 'home.complaints.cards.waterLeakage.imageAlt',
+      surfaceClass: 'complaint-card-warm',
+    },
+    {
+      titleKey: 'home.complaints.cards.waterQuality.title',
+      descriptionKey: 'home.complaints.cards.waterQuality.description',
+      imageSrc: 'assets/images/complaint-water-quality.png',
+      imageAltKey: 'home.complaints.cards.waterQuality.imageAlt',
+      surfaceClass: 'complaint-card-cool',
+    },
+    {
+      titleKey: 'home.complaints.cards.meterIssues.title',
+      descriptionKey: 'home.complaints.cards.meterIssues.description',
+      imageSrc: 'assets/images/complaint-meter-issues.png',
+      imageAltKey: 'home.complaints.cards.meterIssues.imageAlt',
+      surfaceClass: 'complaint-card-muted',
+    },
+    {
+      titleKey: 'home.complaints.cards.general.title',
+      descriptionKey: 'home.complaints.cards.general.description',
+      imageSrc: 'assets/images/complaint-general.png',
+      imageAltKey: 'home.complaints.cards.general.imageAlt',
+      surfaceClass: 'complaint-card-sky',
+    },
+  ];
+
   ngOnInit(): void {
     this.currentLang = this.languageService.getCurrentLanguage() || 'en';
     this.setSeo();
@@ -121,6 +153,14 @@ export class HomeComponent implements AfterViewInit {
 
   onServiceApply(): void {
     void this.router.navigate(['/', this.currentLang, 'create-account']);
+  }
+
+  onSendInquiry(): void {
+    void this.router.navigate(['/', this.currentLang, 'contact-us']);
+  }
+
+  onSubmitComplaint(): void {
+    void this.router.navigate(['/', this.currentLang, 'contact-us']);
   }
 
   private setSeo() {

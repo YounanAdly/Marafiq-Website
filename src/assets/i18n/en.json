@@ -98,6 +98,69 @@
         }
       }
     },
+    "mediaCenter": {
+      "kicker": "media center",
+      "title": "news that matters",
+      "viewMore": "View More",
+      "watch": {
+        "title": "WATCH & DISCOVER",
+        "subtitle": "Our Latest Videos in one place",
+        "description": "Discover a wide collection of videos that showcase our latest updates, featured products, and special moments from our brand. In this section, you can watch engaging content that highlights our work, our vision, and everything happening behind the scenes."
+      },
+      "cards": {
+        "newsOne": {
+          "imageAlt": "Engineers checking industrial systems",
+          "openPreview": "Open media preview from first news card"
+        },
+        "newsTwo": {
+          "imageAlt": "Team member reviewing operations",
+          "openPreview": "Open media preview from second news card"
+        },
+        "newsThree": {
+          "imageAlt": "Control room team collaborating",
+          "openPreview": "Open media preview from third news card"
+        }
+      },
+      "video": {
+        "openPreview": "Open full-screen video preview",
+        "coverAlt": "Media center featured video",
+        "previewDialog": "Video preview dialog",
+        "closePreview": "Close video preview"
+      }
+    },
+    "supportInquiry": {
+      "title": "Have a Question? We\u2019re Here to Help",
+      "description": "Submit your inquiries easily and get quick, reliable responses from Marafiq. Whether it\u2019s about services, billing, or general information, we\u2019re committed to assisting you promptly.",
+      "cta": "Send Inquiry"
+    },
+    "complaints": {
+      "kicker": "complaints",
+      "title": "Report Now",
+      "description": "Submit your complaint quickly and easily, each issue is tracked automatically until it\u2019s resolved. We\u2019re committed to handling your concerns promptly.",
+      "submit": "Submit Complaint",
+      "cards": {
+        "waterLeakage": {
+          "title": "Water Leakage",
+          "description": "Report any leaks for quick repair.",
+          "imageAlt": "Water leakage"
+        },
+        "waterQuality": {
+          "title": "Water Quality",
+          "description": "Submit concerns about water taste, color, or smell.",
+          "imageAlt": "Water quality"
+        },
+        "meterIssues": {
+          "title": "Meter Issues",
+          "description": "Report faulty or inaccurate meters.",
+          "imageAlt": "Meter issues"
+        },
+        "general": {
+          "title": "General Complaints",
+          "description": "Any other issues related to services.",
+          "imageAlt": "General complaint"
+        }
+      }
+    },
     "page": {
       "title": "Home Page",
       "subtitle": "Empty starter page with language, theme, and font-size controls.",
