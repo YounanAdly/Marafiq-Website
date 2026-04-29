@@ -7,15 +7,18 @@ import { LanguageService } from '../../shared/services/language.service';
 import { SeoService } from '../../shared/services/seo.service';
 import { ServiceOfferingCardComponent } from '../../shared/components/service-offering-card/service-offering-card.component';
 import { MediaCenterSectionComponent } from '../../shared/components/media-center-section/media-center-section.component';
+import { FaqSectionComponent } from '../../shared/components/faq-section/faq-section.component';
+import { RegulationsSectionComponent } from '../../shared/components/regulations-section/regulations-section.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TranslateModule, ServiceOfferingCardComponent, MediaCenterSectionComponent],
+  imports: [CommonModule, TranslateModule, ServiceOfferingCardComponent, MediaCenterSectionComponent, FaqSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit {
+  readonly regulationsSectionComponent = RegulationsSectionComponent;
   public currentLang = 'en';
   public languageService = inject(LanguageService);
   private seo = inject(SeoService);

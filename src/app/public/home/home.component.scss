@@ -529,11 +529,17 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
   transform: scaleX(-1);
 }
 
-.support-complaints-section {
-  padding: 68px 0 96px;
+.home-support-media-faq-bg {
   background: var(--color-modal-bg);
   background-image: url('/assets/images/complaint-background.svg');
-  background-size: cover;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: repeat-y;
+}
+
+.support-complaints-section {
+  padding: 68px 0 96px;
+  background: transparent;
   position: relative;
 }
 
@@ -667,16 +673,17 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 }
 
 .complaints-grid {
-  margin-top: 1px;
+  margin-top: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px 20px;
+  
 }
 
 .complaint-card {
-  min-height: 198px;
+  height: 198px;
   border-radius: 8px;
-  padding: 16px 24px 16px;
+  padding: 6px 12px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -684,18 +691,26 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .complaint-card-warm {
   background: var(--color-complaint-card-warm);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .complaint-card-cool {
   background: var(--color-otp-border);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .complaint-card-muted {
   background: var(--color-section-soft-bg);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .complaint-card-sky {
   background: var(--color-complaint-card-sky);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .complaint-icon {
@@ -706,8 +721,8 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .complaint-title {
   margin: 0;
-  padding-top: 2px;
-  font-family: 'AvantGarde Bk BT', sans-serif;
+  padding-top: 0;
+  font-family: 'AvantGarde Mt BT', sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -725,15 +740,16 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .complaint-btn {
   margin-top: auto;
-  min-height: 35px;
-  border-radius: 18px;
+  height: 35px;
+  border-radius: 16px;
   border: 1px solid var(--color-orange);
   background: transparent;
   color: var(--color-orange);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
+  padding: 0 12px;
   font-family: 'AvantGarde Md BT', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -747,15 +763,13 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 }
 
 .complaint-btn-arrow {
-  inline-size: 11px;
-  block-size: 11px;
-  border-block-start: 3px solid currentColor;
-  border-inline-end: 3px solid currentColor;
-  transform: rotate(45deg);
+  width: 8px;
+  height: 14px;
+  object-fit: contain;
 }
 
 html[dir='rtl'] .complaint-btn-arrow {
-  transform: rotate(225deg);
+  transform: scaleX(-1);
 }
 
 @media (max-width: 1260px) {
