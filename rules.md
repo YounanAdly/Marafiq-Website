@@ -70,6 +70,13 @@ When implementing a new Figma design, always read this file first and reuse exis
 | `--color-complaint-card-warm` | `#fff1dd` | Home complaints warm card background |
 | `--color-complaint-card-sky` | `#b5efff` | Home complaints sky card background |
 | `--color-section-soft-bg` | `#ebf6f7` | Soft section background |
+| `--color-faq-row-bg` | `rgba(255, 255, 255, 0.11)` | Home FAQ collapsed item background |
+| `--color-regulations-section-bg` | `rgba(34, 185, 255, 0.06)` | Home APSR regulations section surface |
+| `--color-regulations-card-border` | `rgba(176, 220, 232, 0.7)` | Home regulations card border (subtle teal) |
+| `--color-regulations-card-glow` | `rgba(100, 200, 220, 0.22)` | Home regulations card outer glow |
+| `--color-regulations-view-more-glow` | `rgba(191, 222, 255, 0.85)` | Home regulations header CTA glow |
+| `--color-regulations-card-start` | `#ffffff` | Home regulations card gradient start (white) |
+| `--color-regulations-card-end` | `#bce4ee` | Home regulations card gradient end (light teal-blue) |
 
 > **Rule**: Never hardcode these hex values in component SCSS. Always reference via `var(--color-*)`.  
 > `--color-modal-bg` and `--color-modal-input-bg` are intentionally `#ffffff` in all themes because the modal card is always rendered as a white surface (dark-theme only darkens the page background behind it).
@@ -130,6 +137,16 @@ When implementing a new Figma design, always read this file first and reuse exis
     - Selector: `app-media-center-section`
     - Reuse for media/news gallery blocks with featured video preview modal and responsive card layout.
     - Reusable outputs/behaviors: click-to-open full-screen video preview, language-aware "View More" navigation.
+9. FAQ Section
+    - File: `src/app/shared/components/faq-section/faq-section.component.ts`
+    - Selector: `app-faq-section`
+    - Reuse for two-column FAQ blocks with left intro content and right accordion list.
+    - Reusable behaviors: language-aware "View More" navigation, expandable/collapsible FAQ rows, and translatable content keys.
+10. Regulations Section
+    - File: `src/app/shared/components/regulations-section/regulations-section.component.ts`
+    - Selector: `app-regulations-section`
+    - Reuse for APSR regulations/policy cards section with header CTA, file-type visual, metadata rows, and dual actions (View Details / Download PDF).
+    - Reusable behaviors: language-aware "View More", view-details, and download CTA navigation hooks.
 
 ### Reusable Formly Field Types (Registered)
 Source of truth: `src/app/shared/formly/formly-config.module.ts`

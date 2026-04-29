@@ -128,6 +128,61 @@
         "closePreview": "Close video preview"
       }
     },
+    "faq": {
+      "kicker": "faq's",
+      "title": "frequently asked questions",
+      "description": "Find quick answers to the most common questions about our services, billing, and processes all in one place.",
+      "viewMore": "View More",
+      "items": {
+        "applyConnection": {
+          "question": "How can I apply for a new utility service connection with Marafiq?",
+          "answer": "You can apply through the online portal by submitting a service connection request along with the required documents."
+        },
+        "requestDuration": {
+          "question": "How long does it usually take to process a service request?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        "submitComplaint": {
+          "question": "What is the correct way to submit a complaint through the Marafiq website?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        "serviceDisruption": {
+          "question": "What should I do if I experience a water supply issue or service disruption?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        }
+      }
+    },
+    "regulations": {
+      "kicker": "APSR Regulations",
+      "title": "Transparent. Reliable. Regulated.",
+      "viewMore": "View More",
+      "fileTypeAlt": "Policy document file type",
+      "labels": {
+        "category": "Category",
+        "published": "Published"
+      },
+      "actions": {
+        "viewDetails": "View Details",
+        "downloadPdf": "Download PDF"
+      },
+      "cards": {
+        "waterServicePolicy": {
+          "title": "Water Service Policy",
+          "category": "Policy",
+          "published": "May 2020"
+        },
+        "customerCharter": {
+          "title": "Customer Charter",
+          "category": "Guideline",
+          "published": "May 2020"
+        },
+        "meterInstallationGuidelines": {
+          "title": "Meter Installation Guidelines",
+          "category": "Regulation",
+          "published": "May 2020"
+        }
+      }
+    },
     "supportInquiry": {
       "title": "Have a Question? We\u2019re Here to Help",
       "description": "Submit your inquiries easily and get quick, reliable responses from Marafiq. Whether it\u2019s about services, billing, or general information, we\u2019re committed to assisting you promptly.",
