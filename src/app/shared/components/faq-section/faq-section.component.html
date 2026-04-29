@@ -1,0 +1,45 @@
+<section class="faq-section">
+  <div class="faq-wrap">
+    <article class="faq-intro">
+      <div class="faq-title-block">
+        <p class="faq-kicker">{{ 'home.faq.kicker' | translate }}</p>
+        <h2 class="faq-title">{{ 'home.faq.title' | translate }}</h2>
+      </div>
+
+      <p class="faq-description">{{ 'home.faq.description' | translate }}</p>
+
+      <button
+        type="button"
+        class="faq-more-btn"
+        (click)="onViewMore()"
+        [attr.aria-label]="'home.faq.viewMore' | translate">
+        {{ 'home.faq.viewMore' | translate }}
+      </button>
+    </article>
+
+    <div class="faq-list" [attr.aria-label]="'home.faq.title' | translate">
+      <article
+        class="faq-item"
+        *ngFor="let item of faqs; let i = index"
+        [class.faq-item-active]="activeFaqIndex === i">
+        <button
+          type="button"
+          class="faq-question-btn"
+          (click)="onToggle(i)"
+          [attr.aria-expanded]="activeFaqIndex === i ? 'true' : 'false'"
+          [attr.aria-label]="item.questionKey | translate">
+          <span class="faq-question">{{ item.questionKey | translate }}</span>
+          <img
+            class="faq-chevron"
+            src="assets/images/faq-chevron.svg"
+            alt=""
+            aria-hidden="true" />
+        </button>
+
+        <p *ngIf="activeFaqIndex === i && item.answerKey" class="faq-answer">
+          {{ item.answerKey | translate }}
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
