@@ -2,7 +2,7 @@
   position: relative;
   min-height: 860px;
   padding: 45px 0 96px;
-  background-image: url('/assets/images/bgHome.svg');
+  background-image: url('../../../assets/images/bgHome.svg');
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -531,7 +531,7 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .home-support-media-faq-bg {
   background: var(--color-modal-bg);
-  background-image: url('/assets/images/complaint-background.svg');
+  background-image: url('../../../assets/images/complaint-background.svg');
   background-size: 100% auto;
   background-position: center top;
   background-repeat: repeat-y;
@@ -557,7 +557,7 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
   min-height: 583px;
   border-radius: 31px;
   overflow: hidden;
-  background: url('/assets/images/home-inquiry-frame.svg') center/cover no-repeat;
+  background: url('../../../assets/images/home-inquiry-frame.svg') center/cover no-repeat;
   box-sizing: border-box;
   padding: 118px 34px 20px;
 
@@ -703,7 +703,7 @@ html[dir='rtl'] .services-arrow-next .services-arrow__img {
 
 .complaint-card-muted {
   background: var(--color-section-soft-bg);
-  padding-top: 12px;
+  padding-top: 12px;  
   padding-bottom: 12px;
 }
 
