@@ -1,0 +1,393 @@
+{
+  "HELLO": "Hello world!",
+  "WELCOME": "Welcome to our application",
+  "GOODBYE": "Goodbye",
+  "numbersOnly": "Numbers only allowed",
+  "validation": {
+    "required": "This field is required",
+    "numbersOnly": "Numbers only allowed",
+    "emailPattern": "Please enter a valid email address",
+    "fullNamePattern": "Please enter a valid full name",
+    "mobileNumberLength": "Mobile number must be 8 digits"
+  },
+  "home": {
+    "seo": {
+      "title": "Home Page | My Portal",
+      "description": "Welcome to the home page of our portal.",
+      "keywords": "home, portal, welcome",
+      "image": "https://myportal.com/assets/seo/home-banner.jpg",
+      "url": "https://myportal.com/home",
+      "author": "MyPortal Team",
+      "type": "website"
+    },
+    "hero": {
+      "logoAlt": "Marafiq",
+      "navLabel": "Home main navigation",
+      "actionsLabel": "Home header actions",
+      "nav": {
+        "aboutUs": "About Us",
+        "services": "Services",
+        "complaints": "Complaints",
+        "inquiry": "Inquiry",
+        "mediaCenter": "Media Center",
+        "faq": "FAQ's",
+        "dashboard": "My Dashboard"
+      },
+      "actions": {
+        "phone": "Contact phone",
+        "notifications": "Notifications",
+        "language": "Language",
+        "currentLanguage": "Current language"
+      },
+      "title": {
+        "engineering": "Engineering",
+        "foundation": "the Foundations of",
+        "sustainable": "Sustainable",
+        "growth": "Growth"
+      }
+    },
+    "about": {
+      "kicker": "about us",
+      "title": "WHO WE ARE ?",
+      "viewMore": "View More",
+      "cards": {
+        "powering": {
+          "title": "POWERING WHAT MATTERS MOST",
+          "body": "At Marafiq, we are more than a utility provider, we are a partner in progress, committed to enabling growth, resilience, and sustainable value for Oman and beyond. We serve a diverse base of strategic clients, ensuring uninterrupted access to electricity, water, steam, and industrial gases, while supporting their focus on innovation and core business priorities."
+        },
+        "redefining": {
+          "title": "REDEFINING",
+          "body": "Our mission goes beyond operations. We are working to redefine what a modern utility provider can be adaptive, purpose-driven..."
+        },
+        "efficiency": {
+          "title": "EFFICIENCY",
+          "body": "Since our founding in 2013, Marafiq has become a key contributor to national development by delivering integrated utility ..."
+        }
+      }
+    },
+    "services": {
+      "kicker": "services",
+      "title": "Powering Your Needs",
+      "description": "Explore our range of utility services designed to ensure reliable, efficient, and compliant solutions for every need.",
+      "viewMore": "View More",
+      "applyNow": "Apply Now",
+      "nav": {
+        "prev": "Previous services",
+        "next": "Next services"
+      },
+      "cards": {
+        "connection": {
+          "title": "Water Service Connection Request",
+          "description": "Request a new water connection for residential, commercial, or industrial properties.",
+          "imageAlt": "Water service connection"
+        },
+        "tanker": {
+          "title": "Tanker Filling License Request",
+          "description": "Apply for a license to operate and fill water tankers at approved facilities.",
+          "imageAlt": "Tanker filling"
+        },
+        "meter": {
+          "title": "Additional Water Meter",
+          "description": "Request additional utility meters based on increased demand or site requirements.",
+          "imageAlt": "Additional meter"
+        },
+        "disconnection": {
+          "title": "Permanent Water Disconnection",
+          "description": "Apply for permanent utility disconnection for completed developments with stable long-term planning.",
+          "imageAlt": "Permanent disconnection"
+        }
+      }
+    },
+    "mediaCenter": {
+      "kicker": "media center",
+      "title": "news that matters",
+      "viewMore": "View More",
+      "watch": {
+        "title": "WATCH & DISCOVER",
+        "subtitle": "Our Latest Videos in one place",
+        "description": "Discover a wide collection of videos that showcase our latest updates, featured products, and special moments from our brand. In this section, you can watch engaging content that highlights our work, our vision, and everything happening behind the scenes."
+      },
+      "cards": {
+        "newsOne": {
+          "imageAlt": "Engineers checking industrial systems",
+          "openPreview": "Open media preview from first news card"
+        },
+        "newsTwo": {
+          "imageAlt": "Team member reviewing operations",
+          "openPreview": "Open media preview from second news card"
+        },
+        "newsThree": {
+          "imageAlt": "Control room team collaborating",
+          "openPreview": "Open media preview from third news card"
+        }
+      },
+      "video": {
+        "openPreview": "Open full-screen video preview",
+        "coverAlt": "Media center featured video",
+        "previewDialog": "Video preview dialog",
+        "closePreview": "Close video preview"
+      }
+    },
+    "faq": {
+      "kicker": "faq's",
+      "title": "frequently asked questions",
+      "description": "Find quick answers to the most common questions about our services, billing, and processes all in one place.",
+      "viewMore": "View More",
+      "items": {
+        "applyConnection": {
+          "question": "How can I apply for a new utility service connection with Marafiq?",
+          "answer": "You can apply through the online portal by submitting a service connection request along with the required documents."
+        },
+        "requestDuration": {
+          "question": "How long does it usually take to process a service request?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        "submitComplaint": {
+          "question": "What is the correct way to submit a complaint through the Marafiq website?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        "serviceDisruption": {
+          "question": "What should I do if I experience a water supply issue or service disruption?",
+          "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        }
+      }
+    },
+    "regulations": {
+      "kicker": "APSR Regulations",
+      "title": "Transparent. Reliable. Regulated.",
+      "viewMore": "View More",
+      "fileTypeAlt": "Policy document file type",
+      "labels": {
+        "category": "Category",
+        "published": "Published"
+      },
+      "actions": {
+        "viewDetails": "View Details",
+        "downloadPdf": "Download PDF"
+      },
+      "cards": {
+        "waterServicePolicy": {
+          "title": "Water Service Policy",
+          "category": "Policy",
+          "published": "May 2020"
+        },
+        "customerCharter": {
+          "title": "Customer Charter",
+          "category": "Guideline",
+          "published": "May 2020"
+        },
+        "meterInstallationGuidelines": {
+          "title": "Meter Installation Guidelines",
+          "category": "Regulation",
+          "published": "May 2020"
+        }
+      }
+    },
+    "supportInquiry": {
+      "title": "Have a Question? We\u2019re Here to Help",
+      "description": "Submit your inquiries easily and get quick, reliable responses from Marafiq. Whether it\u2019s about services, billing, or general information, we\u2019re committed to assisting you promptly.",
+      "cta": "Send Inquiry"
+    },
+    "complaints": {
+      "kicker": "complaints",
+      "title": "Report Now",
+      "description": "Submit your complaint quickly and easily, each issue is tracked automatically until it\u2019s resolved. We\u2019re committed to handling your concerns promptly.",
+      "submit": "Submit Complaint",
+      "cards": {
+        "waterLeakage": {
+          "title": "Water Leakage",
+          "description": "Report any leaks for quick repair.",
+          "imageAlt": "Water leakage"
+        },
+        "waterQuality": {
+          "title": "Water Quality",
+          "description": "Submit concerns about water taste, color, or smell.",
+          "imageAlt": "Water quality"
+        },
+        "meterIssues": {
+          "title": "Meter Issues",
+          "description": "Report faulty or inaccurate meters.",
+          "imageAlt": "Meter issues"
+        },
+        "general": {
+          "title": "General Complaints",
+          "description": "Any other issues related to services.",
+          "imageAlt": "General complaint"
+        }
+      }
+    },
+    "page": {
+      "title": "Home Page",
+      "subtitle": "Empty starter page with language, theme, and font-size controls.",
+      "languageLabel": "Language",
+      "themeLabel": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeGreen": "Green",
+      "fontSizeLabel": "Font Size",
+      "emptyLine1": "Page content intentionally left empty.",
+      "emptyLine2": "Header and footer are rendered by the main app shell."
+    }
+  },
+  "login": {
+    "actions": {
+      "createAccount": "Create New Account"
+    },
+    "otp": {
+      "messagePrefix": "Please enter the verification code sent to your",
+      "mobileNumberLabel": "mobile number",
+      "verify": "Verify",
+      "close": "Close verification popup",
+      "digitLabel": "OTP digit"
+    }
+  },
+  "createAccount": {
+    "seo": {
+      "title": "Create Account | Marafiq",
+      "description": "Create your Marafiq account to access services and track requests.",
+      "keywords": "create account, marafiq, register",
+      "url": "https://myportal.com/create-account",
+      "author": "Marafiq Team",
+      "type": "website"
+    },
+    "hero": {
+      "title": "Easy Requests, Fast Processing",
+      "description": "Submit service requests, track their progress, and receive updates seamlessly without the need for in-person visits."
+    },
+    "form": {
+      "title": "Create New Account",
+      "rememberMe": "Remember me",
+      "alreadyHaveAccount": "Already have an account?",
+      "submit": "Create New Account"
+    },
+    "fields": {
+      "fullName": "Name",
+      "emailAddress": "Email Address",
+      "mobileNumber": "Mobile Number"
+    },
+    "otp": {
+      "title": "Verify Mobile Number"
+    },
+    "success": {
+      "title": "Profile created successfully",
+      "description": "You have successfully set up your profile. You can now view or update it at any time.",
+      "done": "Done",
+      "close": "Close success popup"
+    }
+  },
+  "footer": {
+    "brand": {
+      "logoAlt": "Marafiq"
+    },
+    "menu": {
+      "title": "OUR MENU",
+      "aboutUs": "About Us",
+      "services": "Services",
+      "complaints": "Complaints",
+      "mediaCenter": "Media Center",
+      "faq": "FAQ's"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "phone": "+968 22143933",
+      "email": "records@marafiq.om",
+      "address": "P.O Box 80, Postal Code 121 Muscat office (HQ), Muscat Grand Mall"
+    },
+    "social": {
+      "facebook": "Marafiq on Facebook",
+      "x": "Marafiq on X",
+      "linkedin": "Marafiq on LinkedIn"
+    },
+    "legal": {
+      "privacy": "Privacy & Policy",
+      "terms": "Terms of Use",
+      "accessibility": "Accessibility"
+    },
+    "bottom": {
+      "copyright": "\u00a9 Copyright {{year}} Marafiq, All right reserved.",
+      "legalNav": "Footer legal links"
+    }
+  },
+  "primeng": {
+    "dayNamesHijri": [
+      "Mon",
+      "Tues",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "dayNames": [
+      "Sun",
+      "Mon",
+      "Tues",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "dayNamesShort": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "dayNamesMin": [
+      "Su",
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa"
+    ],
+    "monthNames": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "monthNamesShort": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "monthsHijri": [
+      "Muharram",
+      "Safar",
+      "Rabi al-Awwal",
+      "Rabi al-Thani",
+      "Jumada al-Awwal",
+      "Jumada al-Thani",
+      "Rajab",
+      "Shaban",
+      "Ramadan",
+      "Shawwal",
+      "Dhu al-Qadah",
+      "Dhu al-Hijjah"
+    ],
+    "today": "Select Current Time",
+    "clear": "Clear"
+  }
+}
